@@ -13,6 +13,8 @@ import {
   Text,
 } from "components";
 import Footer from "components/Footer";
+import RestaurantCard from "components/RestaurantCard";
+import NavBar from "components/Navbar";
 
 const HomepagePage = () => {
   const navigate = useNavigate();
@@ -22,88 +24,10 @@ const HomepagePage = () => {
 
   return (
     <>
-      <div className="bg-gray-50 flex flex-col font-poppins items-center justify-start mx-auto w-full overflow-hidden">
-        <div className="bg-gradient  flex flex-col items-center justify-start p-[50px] md:px-10 sm:px-5 w-full">
-          <div className="flex flex-col md:gap-10 gap-[70px] items-center justify-start max-w-[1240px] mb-5 mx-auto w-full">
-            <header className="flex items-center justify-center w-full">
-              <div className="flex md:flex-col flex-row md:gap-5 items-center justify-center w-full">
-                <div className="header-row ">
-                  <Img
-                    className="h-[51px]"
-                    src="images/img_logo.svg"
-                    alt="Logo"
-                  />
-                  <div className="mobile-menu">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <div className="flex md:flex-1 sm:flex-col flex-row font-opensans sm:hidden items-start justify-center md:ml-[0] ml-[107px] pt-0.5 w-[52%] md:w-full">
-                  <div className="flex flex-col gap-1.5 items-center justify-start w-[9%] sm:w-full">
-                    <Text
-                      className="text-base text-red-400"
-                      size="txtOpenSansRomanRegular16"
-                    >
-                      Home
-                    </Text>
-                    <Line className="bg-red-400 h-px w-full" />
-                  </div>
-                 
-                  <div className="flex flex-col items-center justify-start ml-[31px]">
-                    <Text
-                      className="common-pointer text-base text-gray-900_cc"
-                      size="txtOpenSansRomanRegular16Gray900cc"
-                      onClick={() => navigate("")}
-                    >
-                      Order online
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center justify-start ml-[27px]">
-                    <Text
-                      className="common-pointer text-base text-gray-900_cc"
-                      size="txtOpenSansRomanRegular16Gray900cc"
-                      onClick={() => navigate("")}
-                    >
-                      Reservation
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center justify-start ml-[31px]">
-                    <Text
-                      className="common-pointer text-base text-gray-900_cc"
-                      size="txtOpenSansRomanRegular16Gray900cc"
-                      onClick={() => navigate("")}
-                    >
-                      Contact us
-                    </Text>
-                  </div>
-                </div>
-                <Button
-                  className="cursor-pointer flex h-[50px] sm:hidden items-center justify-center md:ml-[0] ml-[122px] w-[50px]"
-                  leftIcon={
-                    <Img
-                      className="h-6 sm:hidden m-[13px]"
-                      src="images/img_cart.svg"
-                      alt="cart"
-                    />
-                  }
-                  shape="circle"
-                  color="white_A700"
-                  variant="fill"
-                >
-                  <div className="sm:hidden"></div>
-                </Button>
-                <Button
-                  className="cursor-pointer font-semibold sm:hidden leading-[normal] min-w-[112px] md:ml-[0] ml-[25px] text-center text-sm"
-                  shape="round"
-                  color="red_400"
-                  size="sm"
-                  variant="fill"
-                >
-                  Log in
-                </Button>
-              </div>
-            </header>
+      <div className="bg-gray-50 flex flex-col font-poppins items-center justify-start mx-auto w-full overflow-x-hidden ">
+        <div className="bg-gradient  flex flex-col items-center justify-start p-[50px]  md:px-5 w-full">
+          <div className="flex flex-col md:gap-10 gap-[70px] items-center justify-start max-w-[1112px]  mb-5 mx-auto w-full">
+          <NavBar  className="flex md:flex-col flex-row md:gap-5 items-start justify-start w-full"/>
             <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
               <div className="flex flex-col items-center justify-start rounded-[16px]">
                 <div className="flex flex-col gap-9 items-start justify-start w-full">
@@ -114,7 +38,7 @@ const HomepagePage = () => {
                     >
                       <span className="text-gray-902 font-opensans text-left font-bold">
                         <>
-                          Find Best Restaurant
+                          Find the Best Restaurant
                           <br />
                           In{" "}
                         </>
@@ -127,30 +51,22 @@ const HomepagePage = () => {
                       className="leading-[200.00%] text-gray-802 text-xl w-[91%] sm:w-full"
                       size="txtPoppinsRegular20"
                     >
-                      We provide best food in town, we provide home delivery and
+                      We Find  best price in town, we find quick home delivery and
                       dine in services.
                     </Text>
                   </div>
                   <div className="flex sm:flex-col flex-row gap-6 items-center justify-start w-[85%] md:w-full">
                     <Button
-                      className="common-pointer cursor-pointer font-semibold min-w-[232px] text-center text-xl"
-                      onClick={() => navigate("")}
-                      shape="round"
-                      color="red_400"
-                      size="lg"
-                      variant="fill"
+                      className="common-pointer bg-red-400 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-white-A700 text-xl"
+                      onClick={() => navigate("/restaurant")}
                     >
                       Order now
                     </Button>
                     <Button
-                      className="common-pointer cursor-pointer font-semibold min-w-[232px] text-center text-xl"
+                      className="common-pointer bg-red-400_19 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-red-400 text-xl"
                       onClick={() => navigate("")}
-                      shape="round"
-                      color="red_400_19"
-                      size="lg"
-                      variant="fill"
                     >
-                      Reservation
+                      Dine Out
                     </Button>
                   </div>
                 </div>
@@ -213,12 +129,8 @@ const HomepagePage = () => {
                 </Text>
               </div>
               <Button
-                className="common-pointer cursor-pointer font-semibold min-w-[232px] text-center text-xl"
-                onClick={() => navigate("")}
-                shape="round"
-                color="red_400"
-                size="lg"
-                variant="fill"
+                className="common-pointer bg-red-400 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-white-A700 text-xl"
+                onClick={() => navigate("/restaurant")}
               >
                 Order now
               </Button>
@@ -234,355 +146,33 @@ const HomepagePage = () => {
           </Text>
           <div className="flex flex-col font-poppins gap-[50px] items-center justify-start w-full">
             <div className="flex sm:flex-col flex-row gap-7 items-center justify-between rounded-[16px] w-full">
-              <Button
-                className="cursor-pointer font-semibold min-w-[232px] text-center text-xl"
-                shape="round"
-                color="red_400"
-                size="lg"
-                variant="fill"
-              >
+              <Button className="bg-red-400 cursor-pointer font-semibold min-w-[232px] py-[26px] rounded-[16px] text-center text-white-A700 text-xl">
                 All catagory
               </Button>
-              <Button
-                className="cursor-pointer min-w-[192px] text-center text-xl"
-                shape="round"
-                color="gray_400_63"
-                size="lg"
-                variant="fill"
-              >
+              <Button className="bg-gray-400_63 cursor-pointer min-w-[192px] py-[27px] rounded-[16px] text-center text-gray-900 text-xl">
                 Dinner
               </Button>
-              <Button
-                className="cursor-pointer min-w-[192px] text-center text-xl"
-                shape="round"
-                color="gray_400_63"
-                size="lg"
-                variant="fill"
-              >
+              <Button className="bg-gray-400_63 cursor-pointer min-w-[192px] py-[27px] rounded-[16px] text-center text-gray-900 text-xl">
                 Lunch
               </Button>
-              <Button
-                className="cursor-pointer min-w-[192px] text-center text-xl"
-                shape="round"
-                color="gray_400_63"
-                size="lg"
-                variant="fill"
-              >
+              <Button className="bg-gray-400_63 cursor-pointer min-w-[192px] py-[27px] rounded-[16px] text-center text-gray-900 text-xl">
                 Dessert
               </Button>
-              <Button
-                className="cursor-pointer min-w-[192px] text-center text-xl"
-                shape="round"
-                color="gray_400_63"
-                size="lg"
-                variant="fill"
-              >
+              <Button className="bg-gray-400_63 cursor-pointer min-w-[192px] py-[27px] rounded-[16px] text-center text-gray-900 text-xl">
                 Drink
               </Button>
             </div>
             <div className="flex flex-col gap-12 items-center justify-start w-full">
               <div className="flex flex-col items-center justify-start rounded-[40px] w-full">
                 <div className="md:gap-5 gap-[35px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] w-full">
-                  <div className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
-                    <Img
-                      className="h-[270px] md:h-auto mt-1.5 object-cover w-[270px]"
-                      src="images/img_pngitem41084.png"
-                      alt="PngItem41084"
-                    />
-                    <div className="flex flex-col items-center justify-end mb-1.5 pt-[17px] w-full">
-                      <div className="flex flex-col gap-[18px] items-center justify-start w-full">
-                        <Text
-                          className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
-                          size="txtPoppinsSemiBold30"
-                        >
-                          Spaghetti
-                        </Text>
-                        <Text
-                          className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
-                          size="txtPoppinsRegular14"
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Egestas consequat mi eget auctor aliquam, diam.{" "}
-                        </Text>
-                      </div>
-                      <div className="flex flex-row items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
-                        <RatingBar
-                          className="flex justify-between w-[140px]"
-                          value={5}
-                          starCount={5}
-                          activeColor="#f54748"
-                          size={24}
-                        ></RatingBar>
-                      </div>
-                      <div className="flex flex-row gap-[34px] items-center justify-between mt-[30px] rounded-lg w-[95%] md:w-full">
-                        <Text
-                          className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                          size="txtPoppinsSemiBold25"
-                        >
-                          $12.05
-                        </Text>
-                        <Button
-                          className="common-pointer cursor-pointer font-semibold min-w-[158px] rounded-lg text-base text-center"
-                          onClick={() => navigate("")}
-                          color="red_400"
-                          size="md"
-                          variant="fill"
-                        >
-                          Order now
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
-                    <Img
-                      className="h-[270px] md:h-auto mt-1.5 object-cover w-[270px]"
-                      src="images/img_pngitem1447549.png"
-                      alt="PngItem1447549"
-                    />
-                    <div className="flex flex-col items-center justify-end mb-1.5 pt-3.5 w-full">
-                      <div className="flex flex-col gap-[22px] items-center justify-start w-full">
-                        <Text
-                          className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
-                          size="txtPoppinsSemiBold30"
-                        >
-                          Gnocchi
-                        </Text>
-                        <Text
-                          className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
-                          size="txtPoppinsRegular14"
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Egestas consequat mi eget auctor aliquam, diam.{" "}
-                        </Text>
-                      </div>
-                      <div className="flex flex-row items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
-                        <RatingBar
-                          className="flex justify-between w-[140px]"
-                          value={5}
-                          starCount={5}
-                          activeColor="#f54748"
-                          size={24}
-                        ></RatingBar>
-                      </div>
-                      <div className="flex flex-row gap-[34px] items-center justify-between mt-[30px] rounded-lg w-[95%] md:w-full">
-                        <Text
-                          className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                          size="txtPoppinsSemiBold25"
-                        >
-                          $12.05
-                        </Text>
-                        <Button
-                          className="common-pointer cursor-pointer font-semibold min-w-[158px] rounded-lg text-base text-center"
-                          onClick={() => navigate("")}
-                          color="red_400"
-                          size="md"
-                          variant="fill"
-                        >
-                          Order now
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
-                    <Img
-                      className="h-[270px] md:h-auto mt-1.5 object-cover w-[270px]"
-                      src="images/img_pngegg.png"
-                      alt="pngegg"
-                    />
-                    <div className="flex flex-col items-center justify-end mb-1.5 pt-3.5 w-full">
-                      <div className="flex flex-col gap-[22px] items-center justify-start w-full">
-                        <Text
-                          className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
-                          size="txtPoppinsSemiBold30"
-                        >
-                          Rovioli
-                        </Text>
-                        <Text
-                          className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
-                          size="txtPoppinsRegular14"
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Egestas consequat mi eget auctor aliquam, diam.{" "}
-                        </Text>
-                      </div>
-                      <div className="flex flex-row items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
-                        <RatingBar
-                          className="flex justify-between w-[140px]"
-                          value={5}
-                          starCount={5}
-                          activeColor="#f54748"
-                          size={24}
-                        ></RatingBar>
-                      </div>
-                      <div className="flex flex-row gap-[34px] items-center justify-between mt-[30px] rounded-lg w-[95%] md:w-full">
-                        <Text
-                          className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                          size="txtPoppinsSemiBold25"
-                        >
-                          $12.05
-                        </Text>
-                        <Button
-                          className="common-pointer cursor-pointer font-semibold min-w-[158px] rounded-lg text-base text-center"
-                          onClick={() => navigate("")}
-                          color="red_400"
-                          size="md"
-                          variant="fill"
-                        >
-                          Order now
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
-                    <Img
-                      className="h-[270px] md:h-auto mt-1.5 object-cover w-[95%]"
-                      src="images/img_pngwing.png"
-                      alt="pngwing"
-                    />
-                    <div className="flex flex-col items-center justify-end mb-1.5 pt-[15px] w-full">
-                      <div className="flex flex-col gap-[22px] items-center justify-start w-full">
-                        <Text
-                          className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
-                          size="txtPoppinsSemiBold30"
-                        >
-                          Penne Alla Vodak
-                        </Text>
-                        <Text
-                          className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
-                          size="txtPoppinsRegular14"
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Egestas consequat mi eget auctor aliquam, diam.{" "}
-                        </Text>
-                      </div>
-                      <div className="flex flex-row items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
-                        <RatingBar
-                          className="flex justify-between w-[140px]"
-                          value={5}
-                          starCount={5}
-                          activeColor="#f54748"
-                          size={24}
-                        ></RatingBar>
-                      </div>
-                      <div className="flex flex-row gap-[34px] items-center justify-between mt-[30px] rounded-lg w-[95%] md:w-full">
-                        <Text
-                          className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                          size="txtPoppinsSemiBold25"
-                        >
-                          $12.05
-                        </Text>
-                        <Button
-                          className="common-pointer cursor-pointer font-semibold min-w-[158px] rounded-lg text-base text-center"
-                          onClick={() => navigate("")}
-                          color="red_400"
-                          size="md"
-                          variant="fill"
-                        >
-                          Order now
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
-                    <Img
-                      className="h-[270px] md:h-auto mt-1.5 object-cover w-[270px]"
-                      src="images/img_pngitem5290903.png"
-                      alt="PngItem5290903"
-                    />
-                    <div className="flex flex-col items-center justify-end mb-1.5 pt-3.5 w-full">
-                      <div className="flex flex-col gap-[22px] items-center justify-start w-full">
-                        <Text
-                          className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
-                          size="txtPoppinsSemiBold30"
-                        >
-                          Risoto
-                        </Text>
-                        <Text
-                          className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
-                          size="txtPoppinsRegular14"
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Egestas consequat mi eget auctor aliquam, diam.{" "}
-                        </Text>
-                      </div>
-                      <div className="flex flex-row items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
-                        <RatingBar
-                          className="flex justify-between w-[140px]"
-                          value={5}
-                          starCount={5}
-                          activeColor="#f54748"
-                          size={24}
-                        ></RatingBar>
-                      </div>
-                      <div className="flex flex-row gap-[34px] items-center justify-between mt-[30px] rounded-lg w-[95%] md:w-full">
-                        <Text
-                          className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                          size="txtPoppinsSemiBold25"
-                        >
-                          $12.05
-                        </Text>
-                        <Button
-                          className="common-pointer cursor-pointer font-semibold min-w-[158px] rounded-lg text-base text-center"
-                          onClick={() => navigate("")}
-                          color="red_400"
-                          size="md"
-                          variant="fill"
-                        >
-                          Order now
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
-                    <Img
-                      className="h-[270px] md:h-auto mt-1.5 object-cover w-[270px]"
-                      src="images/img_pngwing_270X270.png"
-                      alt="pngwing One"
-                    />
-                    <div className="flex flex-col items-center justify-end mb-1.5 w-full">
-                      <div className="flex flex-col gap-[18px] items-center justify-start mt-4 w-full">
-                        <Text
-                          className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
-                          size="txtPoppinsSemiBold30"
-                        >
-                          Splitza Signature
-                        </Text>
-                        <Text
-                          className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
-                          size="txtPoppinsRegular14"
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Egestas consequat mi eget auctor aliquam, diam.{" "}
-                        </Text>
-                      </div>
-                      <div className="flex flex-row items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
-                        <RatingBar
-                          className="flex justify-between w-[140px]"
-                          value={5}
-                          starCount={5}
-                          activeColor="#f54748"
-                          size={24}
-                        ></RatingBar>
-                      </div>
-                      <div className="flex flex-row gap-[34px] items-center justify-between mt-[30px] rounded-lg w-[95%] md:w-full">
-                        <Text
-                          className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                          size="txtPoppinsSemiBold25"
-                        >
-                          $12.05
-                        </Text>
-                        <Button
-                          className="common-pointer cursor-pointer font-semibold min-w-[158px] rounded-lg text-base text-center"
-                          onClick={() => navigate("")}
-                          color="red_400"
-                          size="md"
-                          variant="fill"
-                        >
-                          Order now
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+                  {new Array(6).fill({}).map((props, index) => (
+                    <React.Fragment key={`RestaurantCard${index}`}>
+                      <RestaurantCard
+                        className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full"
+                        {...props}
+                      />
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
               <div className="flex flex-row font-inter gap-2.5 items-center justify-center w-1/5 md:w-full">
@@ -592,36 +182,16 @@ const HomepagePage = () => {
                   alt="arrowleft"
                 />
                 <div className="flex flex-row gap-2.5 items-center justify-start w-[78%]">
-                  <Button
-                    className="cursor-pointer font-semibold h-[35px] leading-[normal] rounded text-center text-sm tracking-[-0.50px] w-[35px]"
-                    color="gray_900"
-                    size="xs"
-                    variant="fill"
-                  >
+                  <Button className="bg-gray-900 cursor-pointer font-semibold h-[35px] leading-[normal] py-[9px] rounded text-center text-sm text-white-A700 tracking-[-0.50px] w-[35px]">
                     1
                   </Button>
-                  <Button
-                    className="cursor-pointer font-semibold h-[35px] leading-[normal] rounded text-center text-sm tracking-[-0.50px] w-[35px]"
-                    color="gray_200"
-                    size="xs"
-                    variant="fill"
-                  >
+                  <Button className="bg-gray-200 cursor-pointer font-semibold h-[35px] leading-[normal] py-[9px] rounded text-black-900 text-center text-sm tracking-[-0.50px] w-[35px]">
                     2
                   </Button>
-                  <Button
-                    className="cursor-pointer font-semibold h-[35px] leading-[normal] rounded text-center text-sm tracking-[-0.50px] w-[35px]"
-                    color="gray_200"
-                    size="xs"
-                    variant="fill"
-                  >
+                  <Button className="bg-gray-200 cursor-pointer font-semibold h-[35px] leading-[normal] py-[9px] rounded text-black-900 text-center text-sm tracking-[-0.50px] w-[35px]">
                     3
                   </Button>
-                  <Button
-                    className="flex h-[35px] items-center justify-center rounded w-[35px]"
-                    color="gray_200"
-                    size="xs"
-                    variant="fill"
-                  >
+                  <Button className="bg-gray-200 flex h-[35px] items-center justify-center p-[7px] rounded w-[35px]">
                     <Img className="h-5" src="images/img_user.svg" alt="user" />
                   </Button>
                 </div>
@@ -634,35 +204,27 @@ const HomepagePage = () => {
             </div>
           </div>
         </div>
-
-        <div className="bg-red-100 flex flex-col font-opensans items-center justify-end max-w-[1112px] mt-[120px] mx-auto p-[93px] md:px-5 rounded-[24px] w-full">
+      
+        <div className="bg-red-100 flex flex-col font-opensans items-center justify-end w-[80%] lg:max-w-[1112px] mt-[120px] mx-auto p-[93px] md:px-5 rounded-[24px] ">
           <div className="flex flex-col gap-12 items-center justify-start mt-[17px] w-[77%] md:w-full">
             <Text
               className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
               size="txtOpenSansRomanBold52"
             >
-              Hungry? Find Best Deals..
+              Hungry? Find the best Deal.
             </Text>
             <div className="flex sm:flex-col flex-row font-poppins gap-6 items-center justify-center w-[70%] md:w-full">
               <Button
-                className="common-pointer cursor-pointer font-semibold min-w-[232px] text-center text-xl"
-                onClick={() => navigate("")}
-                shape="round"
-                color="red_400"
-                size="lg"
-                variant="fill"
+                className="common-pointer bg-red-400 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-white-A700 text-xl"
+                onClick={() => navigate("/restaurant")}
               >
                 Order now
               </Button>
               <Button
-                className="common-pointer cursor-pointer font-semibold min-w-[232px] text-center text-xl"
+                className="common-pointer bg-white-A700_7f cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-red-400 text-xl"
                 onClick={() => navigate("")}
-                shape="round"
-                color="white_A700_7f"
-                size="lg"
-                variant="fill"
               >
-                Reservation
+                Dine Out
               </Button>
             </div>
           </div>

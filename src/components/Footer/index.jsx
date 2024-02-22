@@ -14,14 +14,14 @@ const Footer = (props) => {
                   className="bg-red-400 flex h-[51px] items-center justify-center rounded-[50%] sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 w-[51px]"
                   size="txtPoppinsSemiBold25WhiteA700"
                 >
-                  F
+                  C
                 </Text>
                 <Text
                   className="text-lg text-white-A700"
-                  size="txtPoppinsSemiBold18"
+                  size="txtPoppinsSemiBold18WhiteA700"
                 >
                   <span className="text-white-A700 font-poppins text-left font-semibold">
-                    Foodio
+                    CraveDeals
                   </span>
                   <span className="text-red-400 font-poppins text-left font-semibold">
                     .
@@ -32,42 +32,24 @@ const Footer = (props) => {
                 className="leading-[200.00%] mt-14 text-gray-300 text-xl w-[72%] sm:w-full"
                 size="txtPoppinsRegular20Gray300"
               >
-                Find the best Deals.{" "}
+                Find the best restaurant, cafe, fast food, bar, or other food.{" "}
               </Text>
               <div className="flex flex-row gap-[30px] items-center justify-start md:ml-[0] ml-[3px] mt-[47px] w-[58%] md:w-full">
-                <Button
-                  className="flex h-[60px] items-center justify-center rounded-[50%] w-[60px]"
-                  shape="circle"
-                  color="gray_301"
-                  size="sm"
-                  variant="fill"
-                >
+                <Button className="bg-gray-301 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
                   <Img
                     className="h-[30px]"
                     src="images/img_twitter.png"
                     alt="twitter"
                   />
                 </Button>
-                <Button
-                  className="flex h-[60px] items-center justify-center rounded-[50%] w-[60px]"
-                  shape="circle"
-                  color="bluegray_100"
-                  size="sm"
-                  variant="fill"
-                >
+                <Button className="bg-bluegray-100 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
                   <Img
                     className="h-[30px]"
                     src="images/img_instagram.png"
                     alt="Instagram"
                   />
                 </Button>
-                <Button
-                  className="flex h-[60px] items-center justify-center rounded-[50%] w-[60px]"
-                  shape="circle"
-                  color="bluegray_100"
-                  size="sm"
-                  variant="fill"
-                >
+                <Button className="bg-bluegray-100 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
                   <Img
                     className="h-[30px]"
                     src="images/img_facebook.png"
@@ -89,21 +71,27 @@ const Footer = (props) => {
               >
                 Home
               </Text>
-             
+              <Text
+                className="mt-[35px] text-gray-300 text-xl"
+                size="txtPoppinsRegular20Gray300"
+              >
+                Restaurant
+              </Text>
               <Text
                 className="mt-[34px] text-gray-300 text-xl"
                 size="txtPoppinsRegular20Gray300"
               >
                 Order online
               </Text>
-            
+          
               <Text
                 className="mt-8 text-gray-300 text-xl"
                 size="txtPoppinsRegular20Gray300"
               >
-                Reservation
+                Dine Out
               </Text>
             </div>
+           
             <div className="flex flex-col items-start justify-start md:mt-0 mt-[11px]">
               <Text
                 className="sm:text-[21px] md:text-[23px] text-[25px] text-red-400"
@@ -115,13 +103,13 @@ const Footer = (props) => {
                 className="leading-[153.00%] mt-[46px] text-gray-300 text-xl w-full"
                 size="txtPoppinsRegular20Gray300"
               >
-                 section 101  Bangalore, India
+                Sector 252 banglore, India
               </Text>
               <Text
                 className="mt-[31px] text-gray-300 text-xl"
                 size="txtPoppinsRegular20Gray300"
               >
-                foodio@eat.com
+                Akhiln1108@gmail.com
               </Text>
               <Text
                 className="mt-8 text-gray-300 text-xl"
@@ -140,7 +128,7 @@ const Footer = (props) => {
             </Text>
             <Text
               className="border-[1.5px] border-gray-301 border-solid flex h-[19px] items-center justify-center ml-[5px] mt-1 rounded-[50%] text-center text-gray-301 text-sm w-[19px]"
-              size="txtPoppinsRegular14Gray301"
+              size="txtPoppinsRegular14"
             >
               c
             </Text>
@@ -148,7 +136,7 @@ const Footer = (props) => {
               className="ml-[5px] text-gray-301 text-xl"
               size="txtPoppinsRegular20Gray301"
             >
-              2024 Foodio
+              2024 CraveDeals
             </Text>
           </div>
         </div>

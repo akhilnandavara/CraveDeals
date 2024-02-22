@@ -74,13 +74,17 @@ module.exports = {
         tinos: "Tinos",
         inter: "Inter",
       },
+      boxShadow: {
+        bs5: "0px 4px  11px 0px #0a0a0a0f",
+        bs4: "0px 4px  11px 0px #ff38380f",
+        bs3: "0px 4px  29px 0px #60676933",
+        bs: "3.32px 3.32px  4.99px 0px #ff4e4e11",
+        bs1: "3.32px 3.32px  4.99px 0px #3fc56d11",
+        bs2: "0px 8.34px  21.18px 0px #57667533",
+      },
       backgroundImage: {
         gradient: "linear-gradient(180deg ,#f447482b,#f5474800)",
         gradient1: "linear-gradient(180deg ,#ff89006c,#ff89006c)",
-      },
-      boxShadow: {
-        bs1: "0px 4px  11px 0px #0a0a0a0f",
-        bs: "0px 4px  11px 0px #ff38380f",
       },
     },
   },
