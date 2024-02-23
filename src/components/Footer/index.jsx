@@ -6,15 +6,14 @@ const Footer = (props) => {
   return (
     <>
       <footer className={props.className}>
-        <div className="flex flex-col md:gap-10 gap-[67px] items-center justify-center mb-[76px] mt-[70px] mx-auto w-[78%]">
+        <div className="flex flex-col md:gap-10 gap-[67px] items-center justify-center mb-[76px] mt-[70px] mx-auto  w-[80%] lg:max-w-[1112px]">
           <div className="flex md:flex-col flex-row md:gap-5 items-start justify-evenly w-full">
             <div className="flex md:flex-1 flex-col items-start justify-start mb-2 w-[38%] md:w-full">
               <div className="flex flex-row gap-2 items-center justify-start w-[30%] md:w-full">
                 <Text
-                  className="bg-red-400 flex h-[51px] items-center justify-center rounded-[50%] sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 w-[51px]"
+                  className="bg-red-400  flex px-2 md:h-[51px] items-center justify-center rounded-full sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 md:w-[51px]"
                   size="txtPoppinsSemiBold25WhiteA700"
-                >
-                  C
+                >C
                 </Text>
                 <Text
                   className="text-lg text-white-A700"
@@ -119,21 +118,16 @@ const Footer = (props) => {
               </Text>
             </div>
           </div>
-          <div className="flex flex-row items-start justify-center w-[23%] md:w-full">
+          <div className="flex flex-row items-start  gap-2 justify-center w-[30%] md:w-full">
             <Text
-              className="mt-1 text-gray-301 text-xl"
+              className=" text-gray-301 text-xl"
               size="txtPoppinsRegular20Gray301"
             >
-              Copyright
+              Copyright&copy;
             </Text>
+            
             <Text
-              className="border-[1.5px] border-gray-301 border-solid flex h-[19px] items-center justify-center ml-[5px] mt-1 rounded-[50%] text-center text-gray-301 text-sm w-[19px]"
-              size="txtPoppinsRegular14"
-            >
-              c
-            </Text>
-            <Text
-              className="ml-[5px] text-gray-301 text-xl"
+              className="text-gray-301 text-xl"
               size="txtPoppinsRegular20Gray301"
             >
               2024 CraveDeals

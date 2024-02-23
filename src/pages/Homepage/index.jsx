@@ -26,8 +26,9 @@ const HomepagePage = () => {
     <>
       <div className="bg-gray-50 flex flex-col font-poppins items-center justify-start mx-auto w-full overflow-x-hidden ">
         <div className="bg-gradient  flex flex-col items-center justify-start p-[50px]  md:px-5 w-full">
-          <div className="flex flex-col md:gap-10 gap-[70px] items-center justify-start max-w-[1112px]  mb-5 mx-auto w-full">
-          <NavBar  className="flex md:flex-col flex-row md:gap-5 items-start justify-start w-full"/>
+          <div className="flex flex-col md:gap-10  items-center justify-start  w-[79%]   mb-5 mx-auto gap-[102px] lg:max-w-[1250px] md:px-5">
+        
+          <NavBar className="flex md:flex-col flex-row md:gap-5  md:items-start items-center justify-between w-full" />
             <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
               <div className="flex flex-col items-center justify-start rounded-[16px]">
                 <div className="flex flex-col gap-9 items-start justify-start w-full">
@@ -57,13 +58,13 @@ const HomepagePage = () => {
                   </div>
                   <div className="flex sm:flex-col flex-row gap-6 items-center justify-start w-[85%] md:w-full">
                     <Button
-                      className="common-pointer bg-red-400 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-white-A700 text-xl"
+                      className="common-pointer bg-red-400 cursor-pointer font-semibold  md:px-4 lg:min-w-[232px] md:py-4 lg:py-[27px] rounded-[16px] text-center text-white-A700 lg:text-xl"
                       onClick={() => navigate("/restaurant")}
                     >
                       Order now
                     </Button>
                     <Button
-                      className="common-pointer bg-red-400_19 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-red-400 text-xl"
+                      className="common-pointer bg-red-400_19 cursor-pointer font-semibold  md:px-4 lg:min-w-[232px] md:py-4 lg:py-[27px] rounded-[16px] text-center text-red-400 lg:text-xl"
                       onClick={() => navigate("")}
                     >
                       Dine Out
@@ -79,9 +80,9 @@ const HomepagePage = () => {
             </div>
           </div>
         </div>
-        <div className="bg-green-50 flex flex-row items-center justify-start mt-[139px] p-3.5 w-full">
-          <div className="flex md:flex-col flex-row gap-[13px] items-start justify-start ml-[149px] md:px-5 w-[79%]">
-            <div className="md:h-[558px] h-[646px] relative w-3/5 md:w-full">
+        <div className="bg-green-50 flex flex-row items-center justify-center mt-[139px] p-3.5 w-full">
+          <div className="flex md:flex-col flex-row gap-[13px] items-start justify-start lg:ml-[149px] md:px-5 w-[79%] lg:max-w-[1250px]">
+            <div className="md:h-[558px] lg:h-[646px] relative w-3/5 md:w-full">
               <Img
                 className="absolute h-[558px] inset-y-[0] left-[4%] my-auto object-cover w-[85%]"
                 src="images/img_kindpng3443995.png"
@@ -129,7 +130,7 @@ const HomepagePage = () => {
                 </Text>
               </div>
               <Button
-                className="common-pointer bg-red-400 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-white-A700 text-xl"
+                className="common-pointer bg-red-400 cursor-pointer font-semibold md:px-4 lg:min-w-[232px] md:py-4 lg:py-[27px] rounded-[16px] text-center text-white-A700 text-xl"
                 onClick={() => navigate("/restaurant")}
               >
                 Order now
@@ -137,7 +138,7 @@ const HomepagePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col font-opensans md:gap-10 gap-[79px] items-center justify-start max-w-[1112px] mt-[133px] mx-auto md:px-5 w-full">
+        {/* <div className="flex flex-col font-opensans md:gap-10 gap-[79px] items-center justify-start max-w-[1112px] mt-[133px] mx-auto md:px-5 w-full">
           <Text
             className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
             size="txtOpenSansRomanBold52"
@@ -203,10 +204,10 @@ const HomepagePage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       
-        <div className="bg-red-100 flex flex-col font-opensans items-center justify-end w-[80%] lg:max-w-[1112px] mt-[120px] mx-auto p-[93px] md:px-5 rounded-[24px] ">
-          <div className="flex flex-col gap-12 items-center justify-start mt-[17px] w-[77%] md:w-full">
+        <div className="bg-red-100 flex flex-col font-opensans items-center justify-end w-[79%] lg:max-w-[1112px] mt-[120px] mx-auto p-[93px] md:px-5 rounded-[24px] ">
+          <div className="flex flex-col gap-12 items-center justify-start mt-[17px] w-[79%] md:w-full">
             <Text
               className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
               size="txtOpenSansRomanBold52"
@@ -215,13 +216,13 @@ const HomepagePage = () => {
             </Text>
             <div className="flex sm:flex-col flex-row font-poppins gap-6 items-center justify-center w-[70%] md:w-full">
               <Button
-                className="common-pointer bg-red-400 cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-white-A700 text-xl"
+                className="common-pointer bg-red-400 cursor-pointer font-semibold md:px-4 lg:min-w-[232px] md:py-4 lg:py-[27px]  rounded-[16px] text-center text-white-A700 text-xl"
                 onClick={() => navigate("/restaurant")}
               >
                 Order now
               </Button>
               <Button
-                className="common-pointer bg-white-A700_7f cursor-pointer font-semibold min-w-[232px] py-[27px] rounded-[16px] text-center text-red-400 text-xl"
+                className="common-pointer bg-white-A700_7f cursor-pointer font-semibold md:px-4 lg:min-w-[232px] md:py-4 lg:py-[27px]  rounded-[16px] text-center text-red-400 text-xl"
                 onClick={() => navigate("")}
               >
                 Dine Out
@@ -229,7 +230,7 @@ const HomepagePage = () => {
             </div>
           </div>
         </div>
-        <Footer className="bg-gray-901 flex font-poppins items-center justify-center mt-[120px] md:px-5 w-full" />
+        <Footer className="bg-gray-901 flex font-poppins items-center justify-center mt-[120px] md:px-5 w-full " />
       </div>
     </>
   );

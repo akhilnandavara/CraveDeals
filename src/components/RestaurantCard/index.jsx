@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
        
               <Img
                 className="h-[270px] md:h-auto mt-1.5 object-cover w-[270px]"
-                src={resto.images}
+                src={resto?.images}
                 alt="restaurant image"
               />
             
@@ -24,20 +24,20 @@ const RestaurantCard = (props) => {
               className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
               size="txtPoppinsSemiBold30"
             >
-              {resto.name}
+              {resto?.name}
             </Text>
             <Text
               className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
               size="txtPoppinsRegular14Gray800"
             >
-            {resto.cuisine.join(",")}{" "}
+            {resto?.cuisine.join(",")}{" "}
             </Text>
           </div>
           <div className="flex flex-row items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
             <RatingBar
               className="flex justify-between w-[140px]"
-              value={resto.googleData.ratings?.[0]?.rating}
-              starCount={resto.googleData.ratings?.[0]?.rating}
+              value={resto?.googleData.ratings?.[0]?.rating}
+              starCount={resto?.googleData.ratings?.[0]?.rating}
               activeColor="#f54748"
               size={24}
             ></RatingBar>
@@ -47,7 +47,7 @@ const RestaurantCard = (props) => {
               className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
               size="txtPoppinsSemiBold25Gray900"
             >
-            {resto.googleData.ratings?.[0]?.reviews} Reviews
+            {resto?.googleData.ratings?.[0]?.reviews} Reviews
             </Text>
             <Button
               className="common-pointer bg-red-400 cursor-pointer font-poppins font-semibold min-w-[158px] py-[19px] rounded-lg text-base text-center text-white-A700"
