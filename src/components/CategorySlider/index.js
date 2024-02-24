@@ -13,6 +13,16 @@ const CategorySlider = ({ Urls }) => {
 
   const swiperRef = useRef();
 const navigate=useNavigate();
+
+
+
+const [currentPath, setCurrentPath] = React.useState("getAll");
+  
+
+React.useEffect(() => {
+  navigate(`category/${currentPath}`);
+}, [currentPath]);
+
   return (
     <section className=" w-full my-4 relative ">
       <Swiper
@@ -38,13 +48,13 @@ const navigate=useNavigate();
       >
         {Urls.map((data, index) => (
           <SwiperSlide key={index}>
-            <div onClick={()=>navigate(`category/${data.url}`)}>
+            <div onClick={()=>setCurrentPath(data.url)}>
               <img
                 src={data.imageUrl}
                 alt="data"
-                className="rounded-full object-cover cursor-pointer"
+                className={`rounded-full object-cover cursor-pointer  `}
               />
-              <h3 className="text-lg p-2">{data.name}</h3>
+              <h3 className={`text-lg p-2 ${data.url === currentPath ? "text-xl font-bold" : ""}`}>{data.name}</h3>
             </div>
           </SwiperSlide>
         ))}

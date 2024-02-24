@@ -18,7 +18,7 @@ const RatingBar = ({
         edit={isEditable}
         classNames={className}
         count={starCount}
-        isHalf={false}
+        isHalf={true}
         color={color}
         activeColor={activeColor}
         {...restProps}

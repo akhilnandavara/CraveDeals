@@ -35,7 +35,6 @@ export default function RestaurantList({ categoryPath }) {
   
 
   React.useEffect(() => {
-    console.log("categoryPath", categoryPath);
     navigate(`category/${currentPath}`);
   }, [currentPath]);
 

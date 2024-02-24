@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 
 export default function CategoryData() {
   const { categoryName } = useParams();
-  console.log("categoryName", categoryName);
   const [restoLists, setRestoLists] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +35,7 @@ export default function CategoryData() {
               <React.Fragment key={`RestaurantCard${index}`}>
                 <RestaurantCard
                   resto={restoData} // Passing restaurant data as a prop named "resto"
-                  className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full"
+                  className="bg-white-A700 flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full  hover:shadow-lg transition-all duration-300 ease-in-out"
                 />
               </React.Fragment>
             ))}

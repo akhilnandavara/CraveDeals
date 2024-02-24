@@ -12,7 +12,7 @@ exports.categoryUrls= [
     {
         name: 'NorthIndian',
         imageUrl: 'https://b.zmtcdn.com/data/o2_assets/52eb9796bb9bcf0eba64c643349e97211634401116.png',
-       url:'NorthIndian'
+       url:'North Indian'
     },
     {
         name: 'Burger',
@@ -34,21 +34,6 @@ exports.categoryUrls= [
         imageUrl: 'https://b.zmtcdn.com/data/dish_images/d5ab931c8c239271de45e1c159af94311634805744.png',
        url:'cake'
     },
-{
-    name: 'Biryani',
-    imageUrl: 'https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png',
-   url:'Biryani'
-},
-{
-    name: 'Pizza',
-    imageUrl: 'https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png',
-   url:'Pizzas'
-},
-{
-    name: 'NorthIndian',
-    imageUrl: 'https://b.zmtcdn.com/data/o2_assets/52eb9796bb9bcf0eba64c643349e97211634401116.png',
-   url:'NorthIndian'
-},
 ];
 
 
