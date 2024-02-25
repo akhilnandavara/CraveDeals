@@ -30,9 +30,24 @@ exports.categoryUrls= [
        url:'FastFood'
     },
     {
-        name: 'cake',
+        name: 'Cake',
         imageUrl: 'https://b.zmtcdn.com/data/dish_images/d5ab931c8c239271de45e1c159af94311634805744.png',
-       url:'cake'
+       url:'Cake'
+    },
+    {
+        name: 'Chicken',
+        imageUrl: 'https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png',
+       url:'Chicken'
+    },
+    {
+        name: 'Sandwich',
+        imageUrl: 'https://b.zmtcdn.com/data/o2_assets/fc641efbb73b10484257f295ef0b9b981634401116.png',
+       url:'Sandwich'
+    },
+    {
+        name: 'Shawarma',
+        imageUrl: 'https://b.zmtcdn.com/data/o2_assets/2f34540e0b12058f5f8b9390c3a3fb4a1648972281.png',
+       url:'Shawarma'
     },
 ];
 

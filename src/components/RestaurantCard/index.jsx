@@ -16,7 +16,7 @@ const RestaurantCard = (props) => {
                 className="md:h-auto mt-1.5 rounded-lg object-cover w-full cursor-pointer"
                 src={resto?.images}
                 alt="restaurant image"
-                onClick={() => navigate(`/restaurant/${resto._id}`)}
+                onClick={() => navigate(`/restaurantData/${resto._id}`)}
               />
             
         <div className="flex flex-col items-center justify-end mb-1.5 pt-[17px] w-full">
@@ -43,8 +43,8 @@ const RestaurantCard = (props) => {
               size={24}
             />
             <Text
-              className=" md:text-[1rem] text-[1.5rem] text-gray-900"
-              size="txtPoppinsSemiBold25Gray900"
+              className=" md:text-[1rem] font-poppins text-[1.5rem] text-gray-902"
+              size="txtPoppinsSemiBold20"
             >
             {resto?.googleData.ratings?.[0]?.reviews} Reviews
             </Text>

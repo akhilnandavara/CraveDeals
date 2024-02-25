@@ -3,6 +3,7 @@ import { matchPath, useLocation, useNavigate } from "react-router-dom";
 import { Button, Img, Line, Text } from "components";
 import { RxCross1 } from "react-icons/rx";
 
+
 const NavbarLinks = [
   {
     name: "Home",
@@ -48,7 +49,7 @@ const NavBar = (props) => {
   return (
     <div className={props.className}>
       <div className="header-row">
-        <Img className="h-[51px]" src="images/img_logo.svg" alt="Logo" />
+        <Img className="h-[51px]" src={"/images/img_logo.svg"}alt="Logo" />
         <div className="mobile-menu   lg:hidden" onClick={()=>setShowMenu(!(showMenu))}>
         {showMenu ? <RxCross1 /> : <div><div></div><div></div><div></div></div>}
         </div>
@@ -107,7 +108,7 @@ const NavBar = (props) => {
             leftIcon={
               <Img
                 className="h-6 m-[13px]"
-                src="images/img_cart.svg"
+                src={"/images/img_cart.svg"}
                 alt="cart"
               />
             }

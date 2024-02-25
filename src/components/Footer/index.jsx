@@ -37,21 +37,21 @@ const Footer = (props) => {
                 <Button className="bg-gray-301 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
                   <Img
                     className="h-[30px]"
-                    src="images/img_twitter.png"
+                    src="/images/img_twitter.png"
                     alt="twitter"
                   />
                 </Button>
                 <Button className="bg-bluegray-100 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
                   <Img
                     className="h-[30px]"
-                    src="images/img_instagram.png"
+                    src="/images/img_instagram.png"
                     alt="Instagram"
                   />
                 </Button>
                 <Button className="bg-bluegray-100 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
                   <Img
                     className="h-[30px]"
-                    src="images/img_facebook.png"
+                    src="/images/img_facebook.png"
                     alt="Facebook"
                   />
                 </Button>

@@ -14,10 +14,7 @@ const RestaurantPage = () => {
   const location = useLocation(); 
   const path=location.pathname;
 
-
-
   const match = path.match(/\/category\/(.+)/)
-
   const categoryPath = match ? match[1] : "getAll";
   
   return (

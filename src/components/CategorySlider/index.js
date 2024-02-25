@@ -24,7 +24,7 @@ React.useEffect(() => {
 }, [currentPath]);
 
   return (
-    <section className=" w-full my-4 relative ">
+    <section className=" w-full mt-4 relative ">
       <Swiper
         className="text-center"
         modules={[Navigation]}
