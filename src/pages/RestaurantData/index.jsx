@@ -44,7 +44,6 @@ const { restaurantData } = useSelector((state) => state.restaurant);
   const fetchRestaurantData = async () => {
     setLoading(true);
     const res = await getRestaurantData(restaurantId);
-    console.log("response....",res)
     dispatch(setRestaurantData(res));
     setLoading(false);
   };
