@@ -6,7 +6,6 @@ export default function Review() {
   const { restaurantData } = useSelector((state) => state.restaurant);
 
   const { reviews } = restaurantData.googleData;
-  console.log(reviews, "reviews");
   return (
     <div>
       <h2 className="text-2xl font-bold font-poppins py-6">Google Reviews </h2>
