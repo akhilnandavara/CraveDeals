@@ -10,7 +10,7 @@ const NavbarLinks = [
     path: "/",
   },
   {
-    name: "Restaurant",
+    name: "Restaurants",
     path: "/restaurant",
   },
   {
@@ -104,12 +104,16 @@ const NavBar = (props) => {
           className={`flex sm:hidden sm:flex-col flex-row  sm:items-start  items-center gap-2`}
         >
           <Button
-            className="bg-white-A700 cursor-pointer flex h-[50px] items-center justify-center rounded-[50%] w-[50px]"
+            className={` ${
+              matchRoute("/cart") ? "bg-red-400  " : "bg-white-A700"
+            }  cursor-pointer flex h-[50px] items-center justify-center rounded-[50%] w-[50px]`}
+            onClick={() => navigate("/cart")}
             leftIcon={
               <Img
-                className="h-6 m-[13px]"
+                className="h-6 m-[13px] "
                 src={"/images/img_cart.svg"}
                 alt="cart"
+             
               />
             }
           />

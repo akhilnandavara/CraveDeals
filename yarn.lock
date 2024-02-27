@@ -8172,6 +8172,11 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-super-responsive-table@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-5.2.2.tgz#fc3f45b921fa60718b87077dafcba2c48350091d"
+  integrity sha512-LDsGq8X3TBn0AMv5gX/0wFeWoFMMmiZXNTD1kIMMWz3WflPMHUZOSHXXlG5EOO2u3WSNcVl7MLIk83maS/Xj0g==
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"

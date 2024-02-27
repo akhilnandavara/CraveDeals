@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getRestaurantMenu } from "../../../Service/operations/RestaurantApi";
 import { useDispatch, useSelector } from "react-redux";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+
 import {
   addToCart,
   decreaseQuantity,
@@ -11,16 +11,28 @@ import {
 export default function MenuItem() {
   const { restaurantData } = useSelector((state) => state.restaurant);
   const [loading, setLoading] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState([]);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const { menu, name, _id } = restaurantData;
+  const { menu, name, _id, magicPinOffers, swiggyOffers, zomatoOffers } =
+    restaurantData;
   const restaurantName = name;
 
   const restaurantId = _id;
+  const MagicPinDiscount = magicPinOffers[0].match(/\d+/)[0];
 
   const handleAddToCart = (restaurantId, data) => {
-    dispatch(addToCart({ restaurantId, name: restaurantName, item: data }));
+    dispatch(
+      addToCart({
+        restaurantId,
+        name: restaurantName,
+        item: data,
+        magicPinOffers: MagicPinDiscount,
+        swiggyOffers: swiggyOffers,
+        zomatoOffers: zomatoOffers,
+      })
+    );
   };
 
   const handleDecreaseQuantity = (restaurantId, itemId) => {
@@ -28,6 +40,16 @@ export default function MenuItem() {
   };
   const handleIncreaseQuantity = (restaurantId, itemId) => {
     dispatch(increaseQuantity({ restaurantId, itemId }));
+  };
+
+  const toggleSection = (sectionIndex) => {
+    setIsCollapsed((prevSections) => {
+      if (prevSections.includes(sectionIndex)) {
+        return prevSections.filter((index) => index !== sectionIndex);
+      } else {
+        return [...prevSections, sectionIndex];
+      }
+    });
   };
 
   return (
@@ -41,17 +63,24 @@ export default function MenuItem() {
               {/* Section Heading */}
               <h2 className="w-full">
                 <button
-                  className="flex justify-between w-full text-left p-4 text-lg font-semibold bg-gray-100 hover:bg-gray-200 "
+                  className="flex  justify-between w-full text-left p-4 text-lg font-semibold bg-gray-100 hover:bg-gray-200 "
                   type="button"
                   onClick={() => {
                     const panel = document.getElementById(
                       `collapse${sectionIndex}`
                     );
                     panel.classList.toggle("hidden");
+                    toggleSection(sectionIndex); //this is the function that is called to set arrow  in header section when the button is clicked
                   }}
                 >
                   {section.sectionHeading}
-                  <div>^</div>
+                  <div>
+                    {isCollapsed.includes(sectionIndex) ? (
+                      <IoIosArrowDown />
+                    ) : (
+                      <IoIosArrowUp />
+                    )}
+                  </div>
                 </button>
               </h2>
               {/* Menu Items */}
@@ -125,7 +154,7 @@ export default function MenuItem() {
                                     (item) => item._id === menuItem._id
                                   ).quantity}
                               </div>
-
+                              {/* increase qnty */}
                               <div
                                 className="cursor-pointer p-2 rounded-md bg-gray-400"
                                 onClick={() =>
@@ -158,6 +187,7 @@ export default function MenuItem() {
                               onClick={() =>
                                 handleAddToCart(restaurantId, {
                                   ItemName: menuItem.name,
+                                  image: menuItem.image,
                                   swiggyPrice:
                                     restaurantName.toLowerCase() === "freshmenu"
                                       ? menuItem.swiggyPrice % 1000

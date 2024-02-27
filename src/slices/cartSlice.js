@@ -1,5 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+// Define your calculateTotalCost function
+function calculateTotalCost(swiggyPrice, zomatoPrice, magicPinPrice, magicPinOffer) {
+
+  const foodGSTRate = 0.05;
+  const swiggyPlatformCharge = 3;
+  const swiggyPlatformGSTRate = 0.18;
+
+  const swiggyTotalFoodPrice = swiggyPrice * (1 + foodGSTRate);
+  const SwiggyPlatformGST = swiggyPlatformCharge * (1 + swiggyPlatformGSTRate);
+  const swiggyTotalIncludingTax = swiggyTotalFoodPrice + SwiggyPlatformGST;
+
+  const zomatoTotalIncludingTax = zomatoPrice * (1 + foodGSTRate);
+
+  const magicPinTotalFoodPrice = magicPinPrice * (1 + foodGSTRate);
+  const magicPinTaxes = magicPinTotalFoodPrice - magicPinPrice;
+  const magicPinTotalIncludingTax = (magicPinPrice - (magicPinPrice * (magicPinOffer / 100))) + magicPinTaxes;
+
+  return { swiggyTotalIncludingTax, zomatoTotalIncludingTax, magicPinTotalIncludingTax };
+}
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -7,7 +28,7 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-      const { restaurantId, name, item } = action.payload;
+      const { restaurantId, name, item, magicPinOffers, swiggyOffers, zomatoOffers } = action.payload;
 
       // Find the cart for the given restaurant ID
       const cartIndex = state.carts.findIndex((cart) => cart.restaurantId === restaurantId);
@@ -25,12 +46,26 @@ export const cartSlice = createSlice({
           existingCart.magicPinTotalPrice += item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0;
         } else {
           // If the item does not exist in the cart, add it
-          console.log("magicpIn price", item.magicPinPrice)
+          // console.log("magicpIn price", item.magicPinPrice)
           existingCart.items.push({ ...item, quantity: 1 });
           existingCart.swiggyTotalPrice += parseFloat(item.swiggyPrice);
           existingCart.zomatoTotalPrice += parseFloat(item.zomatoPrice);
           existingCart.magicPinTotalPrice += item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0;
         }
+
+
+        // Update the total cost for the restaurant
+        const { swiggyTotalIncludingTax, zomatoTotalIncludingTax, magicPinTotalIncludingTax } = calculateTotalCost(
+          existingCart.swiggyTotalPrice,
+          existingCart.zomatoTotalPrice,
+          existingCart.magicPinTotalPrice,
+          magicPinOffers
+        );
+
+        existingCart.swiggyTotalIncludingTax = swiggyTotalIncludingTax;
+        existingCart.zomatoTotalIncludingTax = zomatoTotalIncludingTax;
+        existingCart.magicPinTotalIncludingTax = magicPinTotalIncludingTax;
+
 
         // Update the cart in the state
         state.carts[cartIndex] = existingCart;
@@ -43,7 +78,11 @@ export const cartSlice = createSlice({
           swiggyTotalPrice: parseFloat(item.swiggyPrice),
           zomatoTotalPrice: parseFloat(item.zomatoPrice),
           magicPinTotalPrice: item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0,
-
+          magicPinOffers: magicPinOffers,
+          swiggyOffers: swiggyOffers,
+          zomatoOffers: zomatoOffers,
+          // Calculate total cost for the new cart
+          ...calculateTotalCost(parseFloat(item.swiggyPrice), parseFloat(item.zomatoPrice), item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0, magicPinOffers),
         };
 
         // Add the new cart to the state
@@ -73,6 +112,7 @@ export const cartSlice = createSlice({
         if (existingCart.items.length === 0) {
           state.carts.splice(cartIndex, 1);
         } else {
+
           // Update the cart in the state
           state.carts[cartIndex] = existingCart;
         }
@@ -100,6 +140,19 @@ export const cartSlice = createSlice({
           if (existingCart.items[itemIndex].magicPinPrice !== undefined) {
             existingCart.magicPinTotalPrice += parseFloat(existingCart.items[itemIndex].magicPinPrice);
           }
+
+          const { swiggyTotalIncludingTax, zomatoTotalIncludingTax, magicPinTotalIncludingTax } = calculateTotalCost(
+            existingCart.swiggyTotalPrice,
+            existingCart.zomatoTotalPrice,
+            existingCart.magicPinTotalPrice,
+            existingCart.magicPinOffers,
+
+          );
+
+          existingCart.swiggyTotalIncludingTax = swiggyTotalIncludingTax;
+          existingCart.zomatoTotalIncludingTax = zomatoTotalIncludingTax;
+          existingCart.magicPinTotalIncludingTax = magicPinTotalIncludingTax;
+
 
           state.carts[cartIndex] = existingCart;
         }
@@ -139,13 +192,29 @@ export const cartSlice = createSlice({
               existingCart.magicPinTotalPrice -= parseFloat(existingCart.items[itemIndex].magicPinPrice);
             }
           }
-          state.carts[cartIndex] = existingCart;
+          // If no items left in the cart, remove the entire cart
+          if (existingCart.items.length === 0) {
+            state.carts.splice(cartIndex, 1);
+          } else {
+            const { swiggyTotalIncludingTax, zomatoTotalIncludingTax, magicPinTotalIncludingTax } = calculateTotalCost(
+              existingCart.swiggyTotalPrice,
+              existingCart.zomatoTotalPrice,
+              existingCart.magicPinTotalPrice,
+              existingCart.magicPinOffers,
+
+            );
+
+            existingCart.swiggyTotalIncludingTax = swiggyTotalIncludingTax;
+            existingCart.zomatoTotalIncludingTax = zomatoTotalIncludingTax;
+            existingCart.magicPinTotalIncludingTax = magicPinTotalIncludingTax;
+            // Update the cart in the state
+            state.carts[cartIndex] = existingCart;
+          }
         }
       }
     },
     clearRestaurantCart: (state, action) => {
       const { restaurantId } = action.payload;
-      console.log(restaurantId)
       state.carts = state.carts.filter(cart => cart.restaurantId !== restaurantId);
     },
     clearCart: (state) => {
@@ -154,5 +223,5 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity ,clearRestaurantCart ,clearCart} = cartSlice.actions;
+export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearRestaurantCart, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

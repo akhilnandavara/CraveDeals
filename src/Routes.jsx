@@ -4,6 +4,7 @@ import NotFound from "pages/NotFound";
 import OverView from "components/core/OverView";
 import Review from "components/core/Reviews";
 import Menu from "components/core/Menu";
+import Cart from "pages/Cart";
 const Homepage = React.lazy(() => import("pages/Homepage"));
 const Orderonline = React.lazy(() => import("pages/Orderonline"));
 const Restaurant = React.lazy(() => import("pages/Restaurant"));
@@ -18,6 +19,7 @@ const ProjectRoutes = () => {
           <Route path="/restaurant" element={<Restaurant />} >
             <Route path="category/:categoryName" element={<CategoryData />} />
           </Route>
+          <Route path="/cart" element={<Cart />}/>
           <Route path="/restaurantData/:restaurantId" element={<RestaurantData />} >
             <Route path="" element={<OverView />} />
             <Route path="reviews" element={<Review />} />
