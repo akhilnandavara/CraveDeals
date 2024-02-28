@@ -8,6 +8,7 @@ import { clearCart, clearRestaurantCart, decreaseQuantity, increaseQuantity, rem
 import { FaRupeeSign } from "react-icons/fa";
 import { Button, Text, Line } from "components"; // Assuming you have these components
 import NavBar from "components/Navbar";
+import OffersSection from "components/core/OffersSection";
 
 export default function Cart() {
   const { carts } = useSelector((state) => state.cart);
@@ -61,7 +62,7 @@ export default function Cart() {
                   </div>
 
                   {/* restaurant name */}
-                  <div className="flex justify-between items-center p-2 border-dotted border-b-gray-700 border-b-2">
+                  <div className="flex justify-between items-center p-2 border-b-4 border-gray-400_63 border-dotted">
                     <div className="flex items-center">
                       <Text className="text-3xl" font="opensans">
                         {resto.name}
@@ -136,7 +137,7 @@ export default function Cart() {
                               {/* item quantity */}
                               <Text>{item.quantity}</Text>
                               {/* increase quantity */}
-                              <Button className="p-2 rounded-md bg-gray-400_63" onClick={() => handleIncreaseQuantity(resto.restaurantId, item._id)}>
+                              <Button className="p-2 rounded-md border-gray-400_63 " onClick={() => handleIncreaseQuantity(resto.restaurantId, item._id)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
@@ -164,7 +165,7 @@ export default function Cart() {
                       ))}
 
                       {/* Total row */}
-                      <Tr className="border-t-2 border-gray-600 border-dotted">
+                      <Tr className="border-t-4 border-gray-400_63 border-dotted">
                         <Td colSpan="3" className="font-bold flex items-center text-lg pt-4">
                           Total: <FaRupeeSign />
                           {filterButtons[resto.restaurantId] === "magicPin" && resto.magicPinTotalIncludingTax.toFixed(2)}
@@ -173,9 +174,12 @@ export default function Cart() {
                         </Td>
                       </Tr>
                     </Tbody>
+                  
                   </Table>
                   <Text className="text-sm">(The total amount excludes package and delivery fees.)</Text>
+                  <OffersSection zomatoOffers={resto.zomatoOffers} swiggyOffers={resto.swiggyOffers} magicPinOffers={resto?.magicPinOffers} />
                   <Line />
+                
                 </div>
               ))
             )}

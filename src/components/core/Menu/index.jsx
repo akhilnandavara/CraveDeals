@@ -20,7 +20,6 @@ export default function MenuItem() {
   const restaurantName = name;
 
   const restaurantId = _id;
-  const MagicPinDiscount = magicPinOffers[0].match(/\d+/)[0];
 
   const handleAddToCart = (restaurantId, data) => {
     dispatch(
@@ -28,7 +27,7 @@ export default function MenuItem() {
         restaurantId,
         name: restaurantName,
         item: data,
-        magicPinOffers: MagicPinDiscount,
+        magicPinOffers: magicPinOffers,
         swiggyOffers: swiggyOffers,
         zomatoOffers: zomatoOffers,
       })

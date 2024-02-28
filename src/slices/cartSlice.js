@@ -41,15 +41,15 @@ export const cartSlice = createSlice({
         if (existingItemIndex !== -1) {
           // If the item already exists in the cart, update its quantity and total price
           existingCart.items[existingItemIndex].quantity += 1;
-          existingCart.swiggyTotalPrice += parseFloat(item.swiggyPrice);
-          existingCart.zomatoTotalPrice += parseFloat(item.zomatoPrice);
+          existingCart.swiggyTotalPrice += item.swiggyPrice !== undefined ? parseFloat(item.swiggyPrice):0;
+          existingCart.zomatoTotalPrice += item.zomatoPrice !== undefined ? parseFloat(item.zomatoPrice):0;
           existingCart.magicPinTotalPrice += item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0;
         } else {
           // If the item does not exist in the cart, add it
           // console.log("magicpIn price", item.magicPinPrice)
           existingCart.items.push({ ...item, quantity: 1 });
-          existingCart.swiggyTotalPrice += parseFloat(item.swiggyPrice);
-          existingCart.zomatoTotalPrice += parseFloat(item.zomatoPrice);
+          existingCart.swiggyTotalPrice += item.swiggyPrice !== undefined ? parseFloat(item.swiggyPrice):0;
+          existingCart.zomatoTotalPrice += item.zomatoPrice !== undefined ? parseFloat(item.zomatoPrice):0;
           existingCart.magicPinTotalPrice += item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0;
         }
 
@@ -59,7 +59,8 @@ export const cartSlice = createSlice({
           existingCart.swiggyTotalPrice,
           existingCart.zomatoTotalPrice,
           existingCart.magicPinTotalPrice,
-          magicPinOffers
+          magicPinOffers[0].match(/\d+/)[0],
+
         );
 
         existingCart.swiggyTotalIncludingTax = swiggyTotalIncludingTax;
@@ -75,15 +76,20 @@ export const cartSlice = createSlice({
           restaurantId: restaurantId,
           name: name,
           items: [{ ...item, quantity: 1 }],
-          swiggyTotalPrice: parseFloat(item.swiggyPrice),
-          zomatoTotalPrice: parseFloat(item.zomatoPrice),
+          swiggyTotalPrice:item.swiggyPrice !== undefined ? parseFloat(item.swiggyPrice):0,
+          zomatoTotalPrice:item.zomatoPrice !== undefined ? parseFloat(item.zomatoPrice):0,
           magicPinTotalPrice: item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0,
           magicPinOffers: magicPinOffers,
           swiggyOffers: swiggyOffers,
           zomatoOffers: zomatoOffers,
           // Calculate total cost for the new cart
-          ...calculateTotalCost(parseFloat(item.swiggyPrice), parseFloat(item.zomatoPrice), item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0, magicPinOffers),
+          ...calculateTotalCost(
+            item.swiggyPrice !== undefined ? parseFloat(item.swiggyPrice):0,
+            item.zomatoPrice !== undefined ? parseFloat(item.zomatoPrice):0,
+              item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0,
+               magicPinOffers[0].match(/\d+/)[0],),
         };
+
 
         // Add the new cart to the state
         state.carts.push(newCart);
@@ -145,7 +151,7 @@ export const cartSlice = createSlice({
             existingCart.swiggyTotalPrice,
             existingCart.zomatoTotalPrice,
             existingCart.magicPinTotalPrice,
-            existingCart.magicPinOffers,
+            existingCart.magicPinOffers[0].match(/\d+/)[0],
 
           );
 
@@ -200,7 +206,7 @@ export const cartSlice = createSlice({
               existingCart.swiggyTotalPrice,
               existingCart.zomatoTotalPrice,
               existingCart.magicPinTotalPrice,
-              existingCart.magicPinOffers,
+              existingCart.magicPinOffers[0].match(/\d+/)[0],
 
             );
 

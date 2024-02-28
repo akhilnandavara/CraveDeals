@@ -12,6 +12,7 @@ import NavBar from "components/Navbar";
 import { Button, Img, Line, Text } from "components";
 import { useDispatch, useSelector } from "react-redux";
 import { setRestaurantData } from "slices/restaurantSlice";
+import Footer from "components/Footer";
 
 const filterButtons = [
   {
@@ -41,13 +42,7 @@ const { restaurantData } = useSelector((state) => state.restaurant);
 
   const location = useLocation();
 
-  const fetchRestaurantData = async () => {
-    setLoading(true);
-    const res = await getRestaurantData(restaurantId);
-    dispatch(setRestaurantData(res));
-    setLoading(false);
-  };
-
+ 
   const matchRoute = (path) => {
     if (path === "") {
       return (
@@ -60,7 +55,14 @@ const { restaurantData } = useSelector((state) => state.restaurant);
   };
 
   useEffect(() => {
-    fetchRestaurantData();
+   ( async () => {
+      setLoading(true);
+      const res = await getRestaurantData(restaurantId);
+      console.log("res",res)
+      dispatch(setRestaurantData(res));
+      setLoading(false);
+    })();
+  
   }, []);
 
   function getTodaysOperatingHours() {
@@ -82,6 +84,7 @@ const { restaurantData } = useSelector((state) => state.restaurant);
   }
   return (
     <>
+   { console.log(restaurantData)}
     { loading ? <div className="flex items-center justify-center h-screen w-full">Loading...</div> :
       <div className="bg-gray-50 flex flex-col font-poppins sm:gap-10 md:gap-10 gap-[140px] items-center justify-end mx-auto  w-full ">
         <div className="flex flex-col font-opensans md:gap-10 gap-[79px] p-[50px]  md:px-5 items-center justify-start w-full">
@@ -107,11 +110,13 @@ const { restaurantData } = useSelector((state) => state.restaurant);
                 ))}
               </div>
 
+              <div className=" flex flex-col gap-4 sticky top-0 z-[1000] bg-white-A700 py-4">
+
               {/* Restaurant details */}
               <div className="flex flex-col gap-4">
                 {/* title  and rating*/}
                 <div className="flex justify-between">
-                  <h1 className="text-3xl font-bold">{restaurantData?.name}</h1>
+                  <h1 className="text-4xl font-bold ">{restaurantData?.name}</h1>
 
                   {/* Ratings */}
                   <div className="flex gap-2 text-lg md:text-sm">
@@ -134,7 +139,7 @@ const { restaurantData } = useSelector((state) => state.restaurant);
                 </div>
 
                 {/* cuisine */}
-                <p>{restaurantData?.cuisine?.join(",")}</p>
+                <p>{restaurantData?.cuisine?.join(", ")}</p>
                 {/* time */}
                 <p>Open {getTodaysOperatingHours()}</p>
 
@@ -164,14 +169,15 @@ const { restaurantData } = useSelector((state) => state.restaurant);
                   </Link>
                 ))}
               </div>
-
-              {/* Dynamic sections order menu/reviews/ offers */}
-              <div className="w-full">
+              </div>
+              {/* Dynamic sections order menu/reviews/offers*/}
+              <div className="w-full z-10">
                 <Outlet />
               </div>
             </div>
           </div>
         </div>
+            <Footer className="bg-gray-901 flex items-center justify-center md:px-5 w-full"/>
       </div>}
     </>
   );

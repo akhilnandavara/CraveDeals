@@ -6,6 +6,7 @@ export default function Review() {
   const { restaurantData } = useSelector((state) => state.restaurant);
 
   const { reviews } = restaurantData.googleData;
+  console.log(reviews[1].profileImg)
   return (
     <div>
       <h2 className="text-2xl font-bold font-poppins py-6">Google Reviews </h2>
@@ -15,7 +16,7 @@ export default function Review() {
           <div key={index} className="flex flex-col gap-4">
             {/* section 1 */}
             <div className="flex gap-2">
-              <img src={review?.profileImg} alt="" className="w-fit" />
+              <img src={review.profileImg} alt="" className=" w-fit" />
               <div className="flex flex-col gap-1">
               <p className="font-semibold">{review.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
                 <p className="text-gray-600">{review?.intro}</p>

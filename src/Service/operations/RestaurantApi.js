@@ -23,6 +23,7 @@ export const getRestaurantList = async () => {
 
 export const getRestaurantData = async (restaurantId) => {
     try {
+        console.log("RestaurantId",restaurantId)
         const response = await apiConnector('POST',getRestaurantDataApi,{restaurantId:restaurantId});
     console.log("GET RESTAURANT DATA API RESPONSE",response.data);
     if (!response?.data?.success) {

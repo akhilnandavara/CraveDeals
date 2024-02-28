@@ -170,7 +170,20 @@ ul li a{
   width: 100%;
 }
 
+
 /* scroll */
+
+
+/* Custom CSS to hide overflow scrollbar */
+.overView-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.overView-scrollbar {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
