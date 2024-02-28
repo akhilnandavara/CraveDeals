@@ -27,7 +27,6 @@ export default function OverView() {
   return (
     <>
       <div className="flex lg:h-[70vh] overflow-y-scroll  overView-scrollbar overflow-x-hidden md:flex-col relative items-start flex-row">
-        {/* Map Div */}
 
         <div className="flex flex-col gap-4 w-[80%]">
           <h2 className="text-3xl font-bold">About This place</h2>
@@ -69,6 +68,8 @@ export default function OverView() {
           </div>
         </div>
 
+        
+        {/* Map Div */}
         <div className="sticky top-10 z-10 flex flex-col gap-2 w-[20%]">
           <button
             className="flex flex-col"

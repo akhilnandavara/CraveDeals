@@ -9,10 +9,12 @@ import { FaRupeeSign } from "react-icons/fa";
 import { Button, Text, Line } from "components"; // Assuming you have these components
 import NavBar from "components/Navbar";
 import OffersSection from "components/core/OffersSection";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
   const { carts } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [filterButtons, setFilterButtons] = React.useState({});
 
   React.useEffect(() => {
@@ -53,16 +55,22 @@ export default function Cart() {
           {/* restaurant card */}
           <div className="w-full font-opensans">
             {!carts.length ? (
-              <Text className="text-xl">No items in cart</Text>
+              <Text className="text-xl flex flex-col gap-2 justify-center items-center">No items in cart
+              
+              <button onClick={()=>navigate('/restaurant/category/getAll')} className=" text-lg bg-red-400 p-2 text-white-A700 rounded-md hover:bg-red-500">ADD ITEM</button>
+              </Text>
             ) : (
               carts.map((resto, index) => (
                 <div key={index} className="flex flex-col gap-5 w-full">
-                  <div className="text-red-400 text-lg w-full flex justify-end" onClick={() => dispatch(clearCart())}>
+                  {/* Clear cart button */}
+                  <div className="flex justify-end" >
+                    <button className="text-red-400 text-lg " onClick={() => dispatch(clearCart())}>
                     Clear Cart
+                    </button>
                   </div>
 
                   {/* restaurant name */}
-                  <div className="flex justify-between items-center p-2 border-b-4 border-gray-400_63 border-dotted">
+                  <div className="flex justify-between items-center p-2 border-t-4 border-gray-400_63 border-dotted">
                     <div className="flex items-center">
                       <Text className="text-3xl" font="opensans">
                         {resto.name}
@@ -127,9 +135,9 @@ export default function Cart() {
                             <Text>{item.ItemName}</Text>
                           </Td>
                           <Td>
-                            <div className="flex gap-2 justify-center items-center">
+                            <div className="flex gap-2  lg:justify-center items-center">
                               {/* decrease quantity */}
-                              <Button className="p-2 rounded-md bg-gray-400_63" onClick={() => handleDecreaseQuantity(resto.restaurantId, item._id)}>
+                              <Button className="lg:p-2 rounded-md bg-gray-400_63" onClick={() => handleDecreaseQuantity(resto.restaurantId, item._id)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
                                 </svg>
@@ -137,7 +145,7 @@ export default function Cart() {
                               {/* item quantity */}
                               <Text>{item.quantity}</Text>
                               {/* increase quantity */}
-                              <Button className="p-2 rounded-md border-gray-400_63 " onClick={() => handleIncreaseQuantity(resto.restaurantId, item._id)}>
+                              <Button className="lg:p-2 rounded-md bg-gray-400_63 " onClick={() => handleIncreaseQuantity(resto.restaurantId, item._id)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
@@ -165,21 +173,26 @@ export default function Cart() {
                       ))}
 
                       {/* Total row */}
-                      <Tr className="border-t-4 border-gray-400_63 border-dotted">
-                        <Td colSpan="3" className="font-bold flex items-center text-lg pt-4">
-                          Total: <FaRupeeSign />
+                      <Tr >
+                        <Td colSpan="1"  >
+                          <span className=" flex font-bold  items-center text-lg pt-4">Total: <FaRupeeSign />
                           {filterButtons[resto.restaurantId] === "magicPin" && resto.magicPinTotalIncludingTax.toFixed(2)}
                           {filterButtons[resto.restaurantId] === "zomato" && resto.zomatoTotalIncludingTax.toFixed(2)}
                           {filterButtons[resto.restaurantId] === "swiggy" && resto.swiggyTotalIncludingTax.toFixed(2)}
+                          </span>
                         </Td>
+                  <Text className="sm:block  hidden text-xs ">(The total amount excludes package and delivery fees.)</Text>
                       </Tr>
                     </Tbody>
-                  
+                 
+                  <Text className="sm:hidden text-xs ">(The total amount excludes package and delivery fees.)</Text>
+
                   </Table>
-                  <Text className="text-sm">(The total amount excludes package and delivery fees.)</Text>
-                  <OffersSection zomatoOffers={resto.zomatoOffers} swiggyOffers={resto.swiggyOffers} magicPinOffers={resto?.magicPinOffers} />
-                  <Line />
-                
+                 <div className="w-full">
+                 <Text className="text-xl py-2 ">Bonus Offers</Text>
+                  <OffersSection filterButtons={filterButtons[resto.restaurantId]} zomatoOffers={resto.zomatoOffers} swiggyOffers={resto.swiggyOffers} magicPinOffers={resto?.magicPinOffers} />
+                  </div> 
+                  <Line className={"border-t-4 border-gray-400_63 border-dotted"} />
                 </div>
               ))
             )}
