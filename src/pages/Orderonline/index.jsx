@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Img, Input, Line, List, RatingBar, Text } from "components";
+import { Text } from "components";
 import Footer from "components/Footer";
 import NavBar from "components/Navbar";
 import CategorySlider from "components/CategorySlider";

@@ -53,9 +53,8 @@ export default function MenuItem() {
 
   return (
     <div>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
+      { loading ? <div className="flex items-center justify-center h-screen w-full">Loading...</div> :
+       (
         <div className="w-full" id="accordionPanelsStayOpenExample">
           {menu?.map((section, sectionIndex) => (
             <div key={sectionIndex} className="">

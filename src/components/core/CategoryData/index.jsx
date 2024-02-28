@@ -27,8 +27,7 @@ export default function CategoryData() {
 
   return (
     <>
-      {loading && <div>Loading...</div>}
-      {!loading && (
+       { loading ? <div className="flex items-center justify-center h-screen w-full">Loading...</div> : (
         <div className="flex flex-col items-center justify-start rounded-[40px] w-full">
           <div className="md:gap-5 gap-[35px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] w-full">
             {restoLists.map((restoData, index) => (

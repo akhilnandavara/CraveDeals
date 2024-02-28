@@ -8,11 +8,15 @@ import { FaRegCopy } from "react-icons/fa";
 
 export default function OverView() {
   const { restaurantData } = useSelector((state) => state.restaurant);
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
   // Check if restaurantData exists
   if (!restaurantData) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        Loading...
+      </div>
+    );
   }
 
   // Destructure required data if it exists
@@ -27,7 +31,6 @@ export default function OverView() {
   return (
     <>
       <div className="flex lg:h-[70vh] overflow-y-scroll  overView-scrollbar overflow-x-hidden md:flex-col relative items-start flex-row">
-
         <div className="flex flex-col gap-4 w-[80%]">
           <h2 className="text-3xl font-bold">About This place</h2>
           <div className="flex gap-2 items-center">
@@ -68,7 +71,6 @@ export default function OverView() {
           </div>
         </div>
 
-        
         {/* Map Div */}
         <div className="sticky top-10 z-10 flex flex-col gap-2 w-[20%]">
           <button
@@ -89,8 +91,15 @@ export default function OverView() {
             {" "}
             <span className="text-lg font-bold">Address</span>{" "}
             {googleData?.address}
-            <CopyToClipboard text={googleData?.address}  onCopy={()=>setCopied(true)}>
-              <button className=" hover:bg-gray-400_64  border-2 w-fit p-2 rounded-lg flex gap-2 items-center" > <FaRegCopy/>{copied ? "Copied":"Copy Address"}</button>
+            <CopyToClipboard
+              text={googleData?.address}
+              onCopy={() => setCopied(true)}
+            >
+              <button className=" hover:bg-gray-400_64  border-2 w-fit p-2 rounded-lg flex gap-2 items-center">
+                {" "}
+                <FaRegCopy />
+                {copied ? "Copied" : "Copy Address"}
+              </button>
             </CopyToClipboard>
           </div>
         </div>

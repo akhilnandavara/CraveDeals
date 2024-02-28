@@ -12,7 +12,7 @@ const RestaurantData = React.lazy(() => import("pages/RestaurantData"));
 const CategoryData = React.lazy(() => import("components/core/CategoryData"));
 const ProjectRoutes = () => {
   return (
-    <React.Suspense fallback={<>Loading...</>}>
+    <React.Suspense fallback={<div className="flex items-center justify-center h-screen w-full">Loading...</div>} >
       <Router>
         <Routes  >
           <Route path="/" element={<Homepage />} />

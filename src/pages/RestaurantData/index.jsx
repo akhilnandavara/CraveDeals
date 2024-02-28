@@ -84,7 +84,6 @@ const { restaurantData } = useSelector((state) => state.restaurant);
   }
   return (
     <>
-   { console.log(restaurantData)}
     { loading ? <div className="flex items-center justify-center h-screen w-full">Loading...</div> :
       <div className="bg-gray-50 flex flex-col font-poppins sm:gap-10 md:gap-10 gap-[140px] items-center justify-end mx-auto  w-full ">
         <div className="flex flex-col font-opensans md:gap-10 gap-[79px] p-[50px]  md:px-5 items-center justify-start w-full">
