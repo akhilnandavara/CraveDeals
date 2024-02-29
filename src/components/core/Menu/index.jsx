@@ -7,6 +7,7 @@ import {
   decreaseQuantity,
   increaseQuantity,
 } from "../../../slices/cartSlice";
+import getRandomLoader from "components/loader";
 
 export default function MenuItem() {
   const { restaurantData } = useSelector((state) => state.restaurant);
@@ -53,7 +54,7 @@ export default function MenuItem() {
 
   return (
     <div>
-      { loading ? <div className="flex items-center justify-center h-screen w-full">Loading...</div> :
+      { loading ? <div className="flex items-center justify-center h-screen w-full"><img src={getRandomLoader()} alt="loading..." className="h-28"/></div> :
        (
         <div className="w-full" id="accordionPanelsStayOpenExample">
           {menu?.map((section, sectionIndex) => (

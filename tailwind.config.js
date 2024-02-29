@@ -6,7 +6,7 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    screens: { md: { max: "1050px" }, sm: { max: "640px" } , minmd:{min:"550px"}, lg: { min: "1050px" }},
+    screens: { md: { max: "1050px" }, sm: { max: "640px" } , minmd:{min:"640px"}, lg: { min: "1050px" }},
     extend: {
       colors: {
         white: { A700_7f: "#ffffff7f", A700: "#ffffff" },

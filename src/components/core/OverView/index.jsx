@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Button } from "components";
 import { FaRegCopy } from "react-icons/fa";
+import getRandomLoader from "components/loader";
 
 export default function OverView() {
   const { restaurantData } = useSelector((state) => state.restaurant);
@@ -14,7 +15,7 @@ export default function OverView() {
   if (!restaurantData) {
     return (
       <div className="flex items-center justify-center h-screen w-full">
-        Loading...
+    <img src={getRandomLoader()} alt="loading..." className="h-28"/>
       </div>
     );
   }

@@ -13,6 +13,7 @@ import { Button, Img, Line, Text } from "components";
 import { useDispatch, useSelector } from "react-redux";
 import { setRestaurantData } from "slices/restaurantSlice";
 import Footer from "components/Footer";
+import getRandomLoader from "components/loader";
 
 const filterButtons = [
   {
@@ -65,6 +66,7 @@ const { restaurantData } = useSelector((state) => state.restaurant);
   
   }, []);
 
+
   function getTodaysOperatingHours() {
     const operatingHours = restaurantData?.googleData?.operatingHours?.filter(
       (day) => {
@@ -84,7 +86,7 @@ const { restaurantData } = useSelector((state) => state.restaurant);
   }
   return (
     <>
-    { loading ? <div className="flex items-center justify-center h-screen w-full">Loading...</div> :
+    { loading ? <div className="flex items-center justify-center   w-full h-screen"> <img src={getRandomLoader()} alt="loading..." className="h-28"/> </div> :
       <div className="bg-gray-50 flex flex-col font-poppins sm:gap-10 md:gap-10 gap-[140px] items-center justify-end mx-auto  w-full ">
         <div className="flex flex-col font-opensans md:gap-10 gap-[79px] p-[50px]  md:px-5 items-center justify-start w-full">
           <div className="flex flex-col md:gap-10  items-center justify-start  w-full  mb-5 mx-auto gap-[50px] lg:max-w-[1250px] md:px-5">

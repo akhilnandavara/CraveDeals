@@ -43,9 +43,9 @@ export default function Cart() {
 
   return (
     <div className="bg-gray-50 flex flex-col font-poppins items-center justify-end mx-auto w-full">
-      <div className="flex flex-col font-opensans gap-10 p-5 items-center justify-start w-full">
+      <div className="flex flex-col font-opensans gap-10  p-[50px]  md:px-5 items-center justify-start w-full">
         <div className="flex flex-col gap-10 items-center justify-start w-full mb-5 mx-auto max-w-[1250px] px-5">
-          <NavBar className="flex flex-row gap-10 items-center justify-between w-full" />
+        <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
           <div className="flex justify-start w-full font-opensans">
             <Text className="text-5xl text-gray-902" size="txtOpenSansRomanBold70">
               Cart

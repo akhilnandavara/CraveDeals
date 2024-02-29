@@ -27,7 +27,7 @@ const HomepagePage = () => {
       <div className="bg-gray-50 flex flex-col font-poppins items-center justify-start mx-auto w-full overflow-x-hidden ">
         <div className="bg-gradient  flex flex-col items-center justify-start p-[50px]  md:px-5 w-full">
           <div className="flex flex-col md:gap-10  items-center justify-start  w-full   mb-5 mx-auto gap-[102px] lg:max-w-[1250px] md:px-5">
-          <NavBar className="flex md:flex-col flex-row md:gap-10 md:items-start items-center justify-between w-full" />
+          <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
             <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
               <div className="flex flex-col items-center justify-start rounded-[16px]">
                 <div className="flex flex-col gap-9 items-start justify-start w-full">

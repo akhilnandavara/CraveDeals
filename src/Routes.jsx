@@ -5,6 +5,7 @@ import OverView from "components/core/OverView";
 import Review from "components/core/Reviews";
 import Menu from "components/core/Menu";
 import Cart from "pages/Cart";
+import getRandomLoader from "components/loader";
 const Homepage = React.lazy(() => import("pages/Homepage"));
 const Orderonline = React.lazy(() => import("pages/Orderonline"));
 const Restaurant = React.lazy(() => import("pages/Restaurant"));
@@ -12,9 +13,9 @@ const RestaurantData = React.lazy(() => import("pages/RestaurantData"));
 const CategoryData = React.lazy(() => import("components/core/CategoryData"));
 const ProjectRoutes = () => {
   return (
-    <React.Suspense fallback={<div className="flex items-center justify-center h-screen w-full">Loading...</div>} >
+    <React.Suspense fallback={<div className="flex items-center justify-center h-screen w-full"><img src={getRandomLoader()} alt="loading..." className="h-28"/></div>} >
       <Router>
-        <Routes  >
+        <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/restaurant" element={<Restaurant />} >
             <Route path="category/:categoryName" element={<CategoryData />} />
