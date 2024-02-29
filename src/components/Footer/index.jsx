@@ -1,20 +1,19 @@
 import React from "react";
 
 import { Button, Img, Text } from "components";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = (props) => {
+  const navigate =useNavigate()
   return (
     <>
       <footer className={props.className}>
         <div className="flex flex-col md:gap-10 gap-[67px] items-center justify-center mb-[76px] mt-[70px] mx-auto  w-[80%] lg:max-w-[1112px]">
           <div className="flex md:flex-col flex-row md:gap-5 items-start justify-evenly w-full">
             <div className="flex md:flex-1 flex-col items-start justify-start mb-2 w-[38%] md:w-full">
-              <div className="flex flex-row gap-2 items-center justify-start w-[30%] md:w-full">
-                <Text
-                  className="bg-red-400  flex px-2 md:h-[51px] items-center justify-center rounded-full sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 md:w-[51px]"
-                  size="txtPoppinsSemiBold25WhiteA700"
-                >C
-                </Text>
+              <div className="flex flex-row gap-1 items-center justify-start w-[30%] md:w-full">
+                <img src="/android-chrome-192x192.png" alt="" className="h-20 hover:scale-[1.1] cursor-pointer" />
                 <Text
                   className="text-lg text-white-A700"
                   size="txtPoppinsSemiBold18WhiteA700"
@@ -31,7 +30,7 @@ const Footer = (props) => {
                 className="leading-[200.00%] mt-14 text-gray-300 text-xl w-[72%] sm:w-full"
                 size="txtPoppinsRegular20Gray300"
               >
-                Find the best restaurant, cafe, fast food, bar, or other food.{" "}
+                Find the best restaurant, cafe, fast food, bar, or food.{" "}
               </Text>
               <div className="flex flex-row gap-[30px] items-center justify-start md:ml-[0] ml-[3px] mt-[47px] w-[58%] md:w-full">
                 <Button className="bg-gray-301 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
@@ -64,31 +63,35 @@ const Footer = (props) => {
               >
                 Page
               </Text>
-              <Text
+              <Link
                 className="mt-[43px] text-gray-300 text-xl"
                 size="txtPoppinsRegular20Gray300"
+                to={"/"}
               >
                 Home
-              </Text>
-              <Text
+              </Link>
+              <Link
                 className="mt-[35px] text-gray-300 text-xl"
                 size="txtPoppinsRegular20Gray300"
+                to={"/restaurant"}
               >
                 Restaurant
-              </Text>
-              <Text
+              </Link>
+              <Link
                 className="mt-[34px] text-gray-300 text-xl"
                 size="txtPoppinsRegular20Gray300"
+                to={"/orderonline/category/getAll"}
               >
                 Order online
-              </Text>
+              </Link>
           
-              <Text
+              <Link
                 className="mt-8 text-gray-300 text-xl"
                 size="txtPoppinsRegular20Gray300"
+                to={"/dine-out"}
               >
                 Dine Out
-              </Text>
+              </Link>
             </div>
            
             <div className="flex flex-col items-start justify-start md:mt-0 mt-[11px]">

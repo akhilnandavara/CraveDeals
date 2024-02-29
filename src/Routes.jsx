@@ -7,6 +7,8 @@ import Menu from "components/core/Menu";
 import Cart from "pages/Cart";
 import getRandomLoader from "components/loader";
 const Homepage = React.lazy(() => import("pages/Homepage"));
+const DineOut = React.lazy(() => import("pages/DineOut"));
+const ContactUs = React.lazy(() => import("pages/ContactUs"));
 const Orderonline = React.lazy(() => import("pages/Orderonline"));
 const Restaurant = React.lazy(() => import("pages/Restaurant"));
 const RestaurantData = React.lazy(() => import("pages/RestaurantData"));
@@ -17,6 +19,8 @@ const ProjectRoutes = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/dine-out" element={<DineOut />} />
+          <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/restaurant" element={<Restaurant />} >
             <Route path="category/:categoryName" element={<CategoryData />} />
           </Route>

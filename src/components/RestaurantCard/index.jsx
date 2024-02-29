@@ -34,25 +34,21 @@ const RestaurantCard = (props) => {
             {resto?.cuisine.join(", ")}{" "}
             </Text>
           </div>
-          <div className="flex flex-row gap-4 items-center justify-center mt-3.5 rounded-[1.76px] w-[49%] md:w-full">
+          <div className="flex    flex-row gap-2 items-center justify-center mt-3.5 rounded-[1.76px] w-full">
             <RatingBar
               className="flex justify-between w-[140px]"
-              value={resto?.googleData.ratings?.[0]?.rating}
-              // starCount={resto?.googleData.ratings?.[0]?.rating}
+              value={Number(resto?.googleData.ratings?.[0]?.rating)}
               activeColor="#f54748"
               size={24}
             />
             <Text
-              className=" md:text-[1rem] font-poppins text-[1.5rem] text-gray-902"
+              className="font-poppins text-[1rem] text-gray-902"
               size="txtPoppinsSemiBold20"
             >
-            {resto?.googleData.ratings?.[0]?.reviews} Reviews
+            {resto.googleData.ratings?.[0]?.reviews} Reviews
             </Text>
           </div>
         </div>
-            
-            
-        
       </div>
     </>
   );

@@ -7,3 +7,4 @@ export { PagerIndicator } from "./PagerIndicator";
 export { RatingBar } from "./RatingBar";
 export { Slider } from "./Slider";
 export { Text } from "./Text";
+export { TextArea } from "./TextArea";
