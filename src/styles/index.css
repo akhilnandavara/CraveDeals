@@ -7,6 +7,20 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Define the styles for selected text */
+::selection {
+  background-color: gray; /* Orange background color */
+  color: #ffffff; /* White text color */
+}
+
+/* Define the styles for selected text in Firefox */
+::-moz-selection {
+  background-color: #gray;
+  color: #ffffff;
+}
+
+
 .dhiwise-code,
 .dhiwise-navigation {
   min-height: 100%;
@@ -182,6 +196,22 @@ ul li a{
 .overView-scrollbar {
   scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
+/* Cart animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px); /* Adjust the height of the bounce */
+  }
+  60% {
+    transform: translateY(-10px); /* Adjust the height of the bounce */
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1.5s ease-in-out infinite; /* Adjust the duration and timing function */
+}
 
 
 ::-webkit-scrollbar {
@@ -200,3 +230,5 @@ ul li a{
   background: #6b6b6b;
   border-radius: 10px;
 }
+
+

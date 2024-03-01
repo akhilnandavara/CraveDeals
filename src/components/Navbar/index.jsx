@@ -51,7 +51,7 @@ const NavBar = (props) => {
   return (
     <div className={props.className}>
       <div className="header-row">
-        <Img className="h-[51px]" src={"/images/img_logo.png"} alt="Logo" />
+        <Img className="h-[51px] cursor-pointer" src={"/images/img_logo.png"} alt="Logo"  onClick={() => navigate("/")}  />
         <div
           className="mobile-menu   lg:hidden"
           onClick={() => setShowMenu(!showMenu)}
@@ -106,10 +106,7 @@ const NavBar = (props) => {
               <Img className="h-6  " src={"/images/img_cart.svg"} alt="cart" />
             }
           >
-            <div className="text-red-400 absolute bottom-0 bg-white-A700 rounded-full w-[40%] h-fit   right-0  text-xs">{carts.length}</div>
-          </Button>
-          <Button className="bg-red-400 cursor-pointer font-poppins font-semibold leading-[normal] min-w-fit text-center text-sm p-2 rounded-md text-white-A700">
-            Log in
+             {carts.length > 0 && <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit   right-0  text-xs">{carts.length}</div>}
           </Button>
         </div>
       </div>
@@ -153,11 +150,10 @@ const NavBar = (props) => {
             />
           }
         >
-            <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit   right-0  text-xs">{carts.length}</div>
+           {carts.length > 0 && <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit   right-0  text-xs">{carts.length}</div>}
         </Button>
-        <Button className="bg-red-400 cursor-pointer font-poppins font-semibold leading-[normal] min-w-fit p-2 px-3 lg:min-w-[112px] py-3.5 rounded-[16px] text-center text-sm text-white-A700">
-          Log in
-        </Button>
+
+        {/* login button can be added in future  */}
       </div>
     </div>
   );

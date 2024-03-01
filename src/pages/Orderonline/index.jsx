@@ -30,8 +30,8 @@ const OrderonlinePage = () => {
       </div>
   
           </div>
-          <Footer className="bg-gray-901 flex items-center justify-center md:px-5 w-full" />
         </div>
+          <Footer className="bg-gray-901 flex items-center justify-center md:px-5 w-full" />
       </div>
     </>
   );

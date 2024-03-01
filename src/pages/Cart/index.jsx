@@ -10,6 +10,9 @@ import { Button, Text, Line } from "components"; // Assuming you have these comp
 import NavBar from "components/Navbar";
 import OffersSection from "components/core/OffersSection";
 import { useNavigate } from "react-router-dom";
+import { CiShoppingBasket } from "react-icons/ci";
+import Footer from "components/Footer";
+
 
 export default function Cart() {
   const { carts } = useSelector((state) => state.cart);
@@ -46,19 +49,24 @@ export default function Cart() {
       <div className="flex flex-col font-opensans gap-10  p-[50px]  md:px-5 items-center justify-start w-full">
         <div className="flex flex-col gap-10 items-center justify-start w-full mb-5 mx-auto max-w-[1250px] px-5">
         <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
-          <div className="flex justify-start w-full font-opensans">
+         {carts.length > 0 && <div className="flex justify-start w-full font-opensans">
             <Text className="text-5xl text-gray-902" size="txtOpenSansRomanBold70">
               Cart
             </Text>
-          </div>
+          </div>}
 
           {/* restaurant card */}
           <div className="w-full font-opensans">
             {!carts.length ? (
-              <Text className="text-xl flex flex-col gap-2 justify-center items-center">No items in cart
+              <div className="flex flex-col  font-opensans gap-6 justify-center items-center">
+                <img src="/images/empty-cart.png" alt=""  className="w-[10rem]" />
+                 <Text className="text-4xl font-bold">Cart is<span className="text-red-400"> Empty!</span></Text>
+                 <Text className="text-sm">Add items to your cart to see them here.</Text>
               
-              <button onClick={()=>navigate('/restaurant/category/getAll')} className=" text-lg bg-red-400 p-2 text-white-A700 rounded-md hover:bg-red-500">ADD ITEM</button>
-              </Text>
+              <button onClick={()=>navigate('/restaurant/category/getAll')} className=" text-sm flex rounded-full items-center bg-red-400 p-4 text-white-A700  hover:bg-red-500 ">
+                <CiShoppingBasket size={24}/>
+                RETURN TO RESTAURANT</button>
+              </div>
             ) : (
               carts.map((resto, index) => (
                 <div key={index} className="flex flex-col gap-5 w-full">
@@ -199,6 +207,7 @@ export default function Cart() {
           </div>
         </div>
       </div>
+      <Footer className="bg-gray-901 flex font-poppins items-center justify-center mt-[120px] md:px-5 w-full " />
     </div>
   );
 }

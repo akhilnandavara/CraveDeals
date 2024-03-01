@@ -72,7 +72,7 @@ export default function RestaurantDataPage() {
       const timing = operatingHours.substring(operatingHours.indexOf(":") + 2);
     
       const isOpen = isCurrentlyOpen(timing);
-      return isOpen ? `Open Between ${timing}` : "Closed";
+      return isOpen ? <div> <span className="font-light text-red-400">Closes at </span> {timing.split(" to ")[1]} </div>:<div><span className="font-light text-red-400">Opens at</span> {timing.split(" to ")[0]}</div>
     } else {
       return "Operating hours not available";
     }
