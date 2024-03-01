@@ -27,10 +27,10 @@ const Footer = (props) => {
                 </Text>
               </div>
               <Text
-                className="leading-[200.00%] mt-14 text-gray-300 text-xl w-[72%] sm:w-full"
+                className="leading-[200.00%] mt-14 text-gray-300 text-lg lg:text-xl w-[72%] sm:w-full"
                 size="txtPoppinsRegular20Gray300"
               >
-                Find the best restaurant, cafe, fast food, bar, or food.{" "}
+                Find the best Deals on restaurant, cafe, fast food, bar and food.{" "}
               </Text>
               <div className="flex flex-row gap-[30px] items-center justify-start md:ml-[0] ml-[3px] mt-[47px] w-[58%] md:w-full">
                 <Button className="bg-gray-301 flex h-[60px] items-center justify-center p-[15px] rounded-[50%] w-[60px]">
@@ -64,21 +64,21 @@ const Footer = (props) => {
                 Page
               </Text>
               <Link
-                className="mt-[43px] text-gray-300 text-xl"
+                className="mt-[43px] text-gray-300 text-lg lg:text-xl"
                 size="txtPoppinsRegular20Gray300"
                 to={"/"}
               >
                 Home
               </Link>
               <Link
-                className="mt-[35px] text-gray-300 text-xl"
+                className="mt-[35px] text-gray-300 text-lg lg:text-xl"
                 size="txtPoppinsRegular20Gray300"
                 to={"/restaurant"}
               >
                 Restaurant
               </Link>
               <Link
-                className="mt-[34px] text-gray-300 text-xl"
+                className="mt-[34px] text-gray-300 text-lg lg:text-xl"
                 size="txtPoppinsRegular20Gray300"
                 to={"/orderonline/category/getAll"}
               >
@@ -86,7 +86,7 @@ const Footer = (props) => {
               </Link>
           
               <Link
-                className="mt-8 text-gray-300 text-xl"
+                className="mt-8 text-gray-300 text-lg lg:text-xl"
                 size="txtPoppinsRegular20Gray300"
                 to={"/dine-out"}
               >
@@ -102,35 +102,35 @@ const Footer = (props) => {
                 Get in touch
               </Text>
               <Text
-                className="leading-[153.00%] mt-[46px] text-gray-300 text-xl w-full"
+                className="leading-[153.00%] mt-[46px] text-gray-300  text-lg lg:text-xl w-full"
                 size="txtPoppinsRegular20Gray300"
               >
                 Sector 252 banglore, India
               </Text>
               <Text
-                className="mt-[31px] text-gray-300 text-xl"
+                className="mt-[31px] text-gray-300  text-lg lg:text-xl"
                 size="txtPoppinsRegular20Gray300"
               >
                 Akhiln1108@gmail.com
               </Text>
               <Text
-                className="mt-8 text-gray-300 text-xl"
+                className="mt-8 text-gray-300  text-lg lg:text-xl"
                 size="txtPoppinsRegular20Gray300"
               >
                 +1800 123 4567
               </Text>
             </div>
           </div>
-          <div className="flex flex-row items-start  gap-2 justify-center w-[30%] md:w-full">
+          <div className="flex flex-row items-center  gap-2 justify-center w-[30%] md:w-full">
             <Text
-              className=" text-gray-301 text-xl"
+              className=" text-gray-301 text-sm lg:text-xl"
               size="txtPoppinsRegular20Gray301"
             >
               Copyright&copy;
             </Text>
             
             <Text
-              className="text-gray-301 text-xl"
+              className="text-gray-301 text-sm lg:text-xl"
               size="txtPoppinsRegular20Gray301"
             >
               2024 CraveDeals
