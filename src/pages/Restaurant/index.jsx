@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import {useLocation } from "react-router-dom";
 
-import { Button, Img, Line, RatingBar, Text } from "components";
+import { Text } from "components";
 import Footer from "components/Footer";
 import NavBar from "components/Navbar";
 const RestaurantList = React.lazy(() =>

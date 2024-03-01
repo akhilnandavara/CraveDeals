@@ -13,14 +13,10 @@ import {
   Text,
 } from "components";
 import Footer from "components/Footer";
-import RestaurantCard from "components/RestaurantCard";
 import NavBar from "components/Navbar";
 
 const HomepagePage = () => {
   const navigate = useNavigate();
-
-  const sliderRef = React.useRef(null);
-  const [sliderState, setsliderState] = React.useState(0);
 
   return (
     <>

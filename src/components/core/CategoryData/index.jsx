@@ -14,11 +14,13 @@ export default function CategoryData() {
     setLoading(true);
     if (categoryName === "getAll") {
       (async () => {
+        console.log("inside get all restaurant List");
         const getAllRestaurant = await getRestaurantList();
         setRestoLists(getAllRestaurant);
       })();
     } else {
       (async () => {
+        console.log("inside get all restaurant List");
         const getCategoryBasedRestaurants = await getCategoryData(categoryName);
         setRestoLists(getCategoryBasedRestaurants);
       })();

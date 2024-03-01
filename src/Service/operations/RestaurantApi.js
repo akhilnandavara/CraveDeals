@@ -10,6 +10,7 @@ const getRestaurantOffersApi=process.env.REACT_APP_BASE_URL +"/restaurant/getRes
 
 export const getRestaurantList = async () => {
     try {
+        console.log("Inside service  function")
         const response = await apiConnector('GET', getRestaurantListApi);
     console.log("GET RESTAURANT LIST API RESPONSE",response);
     if (!response?.data?.success) {
@@ -36,6 +37,8 @@ export const getRestaurantData = async (restaurantId) => {
 }
 export const getRestaurantOverview = async (restaurantId) => {
     try {
+        console.log("RestaurantId Overview",restaurantId)
+
         const response = await apiConnector('POST',getRestaurantOverViewApi,{restaurantId:restaurantId});
     console.log("GET RESTAURANT OVERVIEW API RESPONSE",response.data);
     if (!response?.data?.success) {
