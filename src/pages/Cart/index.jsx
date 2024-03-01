@@ -59,9 +59,9 @@ export default function Cart() {
           <div className="w-full font-opensans">
             {!carts.length ? (
               <div className="flex flex-col  font-opensans gap-6 justify-center items-center">
-                <img src="/images/empty-cart.png" alt=""  className="w-[10rem]" />
-                 <Text className="text-4xl font-bold">Cart is<span className="text-red-400"> Empty!</span></Text>
-                 <Text className="text-sm">Add items to your cart to see them here.</Text>
+                <img src="/images/empty-cart.png" alt=""  className="md:w-[10rem] w-[15rem]" />
+                 <Text className="text-4xl font-bold">Oh oh Cart is <span className="text-red-400"> Empty!</span></Text>
+                 <Text className="text-sm">Add items to your cart to find best deals.</Text>
               
               <button onClick={()=>navigate('/restaurant/category/getAll')} className=" text-sm flex rounded-full items-center bg-red-400 p-4 text-white-A700  hover:bg-red-500 ">
                 <CiShoppingBasket size={24}/>
