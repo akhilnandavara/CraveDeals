@@ -14,7 +14,7 @@ export default function OverView() {
   // Check if restaurantData exists
   if (!restaurantData) {
     return (
-      <div className="flex items-center justify-center h-screen w-full">
+      <div className="flex items-center justify-center h-full w-full">
         <img src={getRandomLoader()} alt="loading..." className="h-28" />
       </div>
     );

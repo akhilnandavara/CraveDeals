@@ -9,7 +9,7 @@ import {
 import { FaDirections, FaStar } from "react-icons/fa";
 import { getRestaurantData } from "Service/operations/RestaurantApi";
 import NavBar from "components/Navbar";
-import { Button, Img, Line, Text } from "components";
+import { Button, Img, Text } from "components";
 import { useDispatch, useSelector } from "react-redux";
 import { setRestaurantData } from "slices/restaurantSlice";
 import Footer from "components/Footer";
@@ -81,8 +81,7 @@ export default function RestaurantDataPage() {
   function isCurrentlyOpen(timingString) {
 
     const now = new Date();
-    console.log("now", now)
-
+  
     const [startTimeStr, endTimeStr] = timingString.split(" to ");
 
     const startTime = parseTime(startTimeStr);
@@ -93,11 +92,6 @@ export default function RestaurantDataPage() {
     if (endTime < startTime) {
       endTime.setDate(endTime.getDate() + 1);
     }
-
-    console.log("startTime", startTime)
-    console.log("endTime", endTime)
-
-    console.log("isopen",now >= startTime && now >= startTime)
 
     return now >= startTime && now <= endTime;
 }
@@ -143,7 +137,6 @@ function parseTime(timeStr) {
 
     return time;
 }
-
   return (
     <>
       {loading ? (
@@ -180,13 +173,13 @@ function parseTime(timeStr) {
                   {/* Restaurant details */}
                   <div className="flex flex-col gap-2">
                     {/* title  and rating*/}
-                    <div className="flex justify-between">
+                    <div className="flex  justify-between">
                       <h1 className=" text-3xl w-[80%] lg:text-4xl font-bold ">
                         {restaurantData?.name}
                       </h1>
 
                       {/* Ratings */}
-                      <div className="flex gap-2 items-center  sm:text-xs  text-lg md:text-sm">
+                      <div className="flex gap-2  items-center  sm:text-xs  text-lg  md:text-sm">
                         {/* rating star */}
                         <div className="flex items-center  gap-1 px-2 py-1 h-fit  text-white-A700  bg-green-800 rounded-lg  ">
                           <div>
@@ -195,12 +188,14 @@ function parseTime(timeStr) {
                           <FaStar size={15} />
                         </div>
                         {/* review count */}
-                        <div className="flex flex-col">
-                          <Text className="font-semibold">
+                        <div className="flex flex-col w-full ">
+                          <Text className="font-semibold ">
                             {restaurantData?.googleData?.ratings?.[0]?.reviews}+
                           </Text>
-                          <Text className=" text-sm border-gray-700 border-b border-dotted ">
+
+                          <Text className=" sm:w-[60%] pb-1 border-gray-700 border-b border-dotted  bottom-0 ">
                             Google Ratings
+                        
                           </Text>
                         </div>
                       </div>

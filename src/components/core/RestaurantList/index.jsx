@@ -39,12 +39,12 @@ export default function RestaurantList({ categoryPath }) {
   }, [currentPath]);
 
   return (
-    <div>
-      <div className="flex sm:flex-col flex-row md:flex-wrap font-poppins md:gap-2 gap-4 items-center justify-center lg:mt-[73px] rounded-[16px]  w-full overflow-hidden">
+    <div className="w-full">
+      <div className="flex sm:flex-col flex-row  md:flex-wrap font-poppins md:gap-2 gap-4 items-center justify-center lg:mt-[2rem] w-full overflow-hidden">
         {categories.map((category, index) => (
           <Button
             key={index}
-            className={` box-content cursor-pointer py-5  md:py-3 w-[50%] lg:min-w-[10rem] rounded-full text-center text-gray-900 text-lg ${
+            className={` box-content  cursor-pointer w-[50%] py-4  lg:min-w-[10rem] rounded-full text-center text-gray-900 text-lg ${
               categoryPath === category.path ? "bg-red-400" : "bg-gray-400_63"
             }`}
             onClick={() => setCurrentPath(category.path)}
@@ -58,5 +58,5 @@ export default function RestaurantList({ categoryPath }) {
         <Outlet />
       </div>
     </div>
-  );
+  )
 }

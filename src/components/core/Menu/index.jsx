@@ -90,7 +90,7 @@ export default function MenuItem() {
   return (
     <div>
       {loading ? (
-        <div className="flex items-center justify-center h-screen w-full">
+        <div className="flex items-center justify-center h-full w-full">
           <img src={getRandomLoader()} alt="loading..." className="h-28" />
         </div>
       ) : (
@@ -295,7 +295,7 @@ export default function MenuItem() {
           onClick={() => navigate("/cart")}
           leftIcon={
             <Img
-              className="h-6 m-[13px] "
+              className="h-6  m-[13px] "
               src={"/images/img_cart.svg"}
               alt="cart"
             />
