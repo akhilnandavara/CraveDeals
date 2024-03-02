@@ -97,7 +97,7 @@ export default function MenuItem() {
         <>
           <div className="w-full" id="accordionPanelsStayOpenExample">
             {menu?.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="">
+              <div key={sectionIndex}>
                 {/* Section Heading */}
                 <h2 className="w-full">
                   <button
