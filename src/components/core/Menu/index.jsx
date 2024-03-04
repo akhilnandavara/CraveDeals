@@ -291,7 +291,7 @@ export default function MenuItem() {
         {carts.length > 0 && 
         <Button
         id="cartIcon"
-          className={`fixed bg-gray-50 z-0 bottom-10 right-0  lg:right-[20%] cursor-pointer  flex h-[50px] items-center justify-center rounded-full w-[50px] `}
+          className={`fixed bg-gray-50 z-0 bottom-10 right-0  xl:right-[15%] cursor-pointer  flex h-[50px] items-center justify-center rounded-full w-[50px] `}
           onClick={() => navigate("/cart")}
           leftIcon={
             <Img

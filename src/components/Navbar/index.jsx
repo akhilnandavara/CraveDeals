@@ -12,7 +12,7 @@ const NavbarLinks = [
   },
   {
     name: "Restaurants",
-    path: "/restaurant/category/getAll",
+    path: "/restaurant",
   },
   {
     name: "Order Online",

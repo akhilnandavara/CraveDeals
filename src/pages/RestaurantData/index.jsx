@@ -152,7 +152,7 @@ function parseTime(timeStr) {
               {/* header content */}
               <div className="w-full flex flex-col gap-4">
                 {/* Restaurant image */}
-                <div className="grid grid-cols-4 grid-rows-2 gap-1   w-full max-h-[20rem] overflow-hidden">
+                <div className="grid grid-cols-4 grid-rows-2 gap-1 z-[100]   w-full max-h-[20rem] overflow-hidden">
                   {restaurantData?.images?.map((img, index) => (
                     <div
                       key={index}
@@ -169,7 +169,7 @@ function parseTime(timeStr) {
                   ))}
                 </div>
 
-                <div className=" flex flex-col sm:gap-1 gap-4 sticky top-0 z-[1000] bg-gray-50 py-4">
+                <div className=" flex flex-col sm:gap-1 gap-4 sticky top-0 z-[100]  bg-gray-50 py-4">
                   {/* Restaurant details */}
                   <div className="flex flex-col gap-2">
                     {/* title  and rating*/}
