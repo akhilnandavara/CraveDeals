@@ -90,18 +90,18 @@ export default function MenuItem() {
   return (
     <div>
       {loading ? (
-        <div className="flex items-center justify-center h-full w-full">
+        <div className="flex  items-center justify-center h-full w-full">
           <img src={getRandomLoader()} alt="loading..." className="h-28" />
         </div>
       ) : (
-        <>
-          <div className="w-full" id="accordionPanelsStayOpenExample">
+        <div>
+          <div className="w-full relative z-[10] " id="accordionPanelsStayOpenExample">
             {menu?.map((section, sectionIndex) => (
               <div key={sectionIndex}>
                 {/* Section Heading */}
                 <h2 className="w-full">
                   <button
-                    className="flex  justify-between w-full text-sm text-left  p-4 lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200 "
+                    className="flex   justify-between w-full text-sm text-left  p-4 lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200 "
                     type="button"
                     onClick={() => {
                       const panel = document.getElementById(
@@ -172,13 +172,13 @@ export default function MenuItem() {
                           </div>
 
                           {/* image and add to cart button right */}
-                          <div className="flex relative  flex-col gap-2 items-center justify-center w-[30%]">
+                          <div className="flex relative  flex-col gap-2 items-center justify-center w-[30%] lg:w-[20%]">
                             {/* Image */}
                             {menuItem.image && (
                               <img
                                 src={menuItem.image}
                                 alt={menuItem.name}
-                                className="max-w-[80%]  object-cover rounded-md"
+                                className="w-full  object-cover rounded-md"
                               />
                             )}
                             {/* Add to Cart */}
@@ -291,11 +291,11 @@ export default function MenuItem() {
         {carts.length > 0 && 
         <Button
         id="cartIcon"
-          className={`fixed  bottom-10 right-0  cursor-pointer  flex h-[50px] items-center justify-center rounded-[50%] w-[50px] `}
+          className={`fixed bg-gray-50 z-0 bottom-10 right-0  lg:right-[20%] cursor-pointer  flex h-[50px] items-center justify-center rounded-full w-[50px] `}
           onClick={() => navigate("/cart")}
           leftIcon={
             <Img
-              className="h-6  m-[13px] "
+              className="h-6  lg:h-10  m-[13px] "
               src={"/images/img_cart.svg"}
               alt="cart"
             />
@@ -306,7 +306,7 @@ export default function MenuItem() {
           </div>
         </Button>
         }
-        </>
+        </div>
       )}
     </div>
   );

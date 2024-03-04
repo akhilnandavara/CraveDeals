@@ -169,7 +169,7 @@ function parseTime(timeStr) {
                   ))}
                 </div>
 
-                <div className=" flex flex-col sm:gap-1 gap-4 sticky top-0 z-[1000] bg-white-A700 py-4">
+                <div className=" flex flex-col sm:gap-1 gap-4 sticky top-0 z-[1000] bg-gray-50 py-4">
                   {/* Restaurant details */}
                   <div className="flex flex-col gap-2">
                     {/* title  and rating*/}

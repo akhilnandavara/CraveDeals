@@ -22,9 +22,9 @@ const RestaurantPage = () => {
         <div className="flex flex-col font-opensans md:gap-10 gap-[79px] p-[50px]  md:px-5 items-center justify-start w-full">
           <div className="flex flex-col md:gap-10  items-center justify-start  w-full  mb-5 mx-auto gap-[5rem] lg:max-w-[1250px] md:px-5">
             <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
-            <Text
-              className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
-              size="txtOpenSansRomanBold52"
+            <Text 
+            className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
+            size="txtOpenSansRomanBold52"
             >
               Order food from your favourite restaurants in Bangalore
             </Text>

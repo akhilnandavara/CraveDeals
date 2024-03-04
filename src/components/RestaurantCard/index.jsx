@@ -25,13 +25,13 @@ const RestaurantCard = (props) => {
               className="text-3xl sm:text-[26px] md:text-[28px] text-gray-900"
               size="txtPoppinsSemiBold30"
             >
-              {resto?.name}
+              {resto.name}
             </Text>
             <Text
               className="leading-[200.00%] text-center text-gray-800 text-sm w-full"
               size="txtPoppinsRegular14Gray800"
             >
-            {resto?.cuisine.join(", ")}{" "}
+            {resto.cuisine.join(", ")}{" "}
             </Text>
           </div>
           <div className="flex    flex-row gap-2 items-center justify-center mt-3.5 rounded-[1.76px] w-full">
@@ -42,7 +42,7 @@ const RestaurantCard = (props) => {
               size={24}
             />
             <Text
-              className="font-poppins text-[1rem] text-gray-902"
+              className="font-poppins sm:text-xs md:text-sm  text-gray-902"
               size="txtPoppinsSemiBold20"
             >
             {resto.googleData.ratings?.[0]?.reviews} Reviews

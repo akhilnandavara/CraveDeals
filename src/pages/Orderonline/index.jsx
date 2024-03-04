@@ -23,7 +23,7 @@ const OrderonlinePage = () => {
             >
               Choose your favorite food
             </Text>
-            <CategorySlider Urls={categoryUrls}/>
+            <CategorySlider Urls={categoryUrls}/> {/* passing the  category Imgae Urls to the CategorySlider component */}
             
       <div className="flex md:flex-col flex-row font-poppins md:gap-[46px] items-center justify-between mt-4 w-full">
         <Outlet />

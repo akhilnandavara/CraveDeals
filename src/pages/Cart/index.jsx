@@ -60,7 +60,7 @@ export default function Cart() {
             {!carts.length ? (
               <div className="flex flex-col  font-opensans gap-6 justify-center items-center">
                 <img src="/images/empty-cart.png" alt=""  className="md:w-[10rem] w-[15rem]" />
-                 <Text className="text-4xl font-bold">Oh oh Cart is <span className="text-red-400"> Empty!</span></Text>
+                 <Text className="text-4xl  text-center font-bold">Oh oh Cart is <span className="text-red-400"> Empty!</span></Text>
                  <Text className="text-sm">Add items to your cart to find best deals.</Text>
               
               <button onClick={()=>navigate('/restaurant/category/getAll')} className=" text-sm flex rounded-full items-center bg-red-400 p-4 text-white-A700  hover:bg-red-500 ">

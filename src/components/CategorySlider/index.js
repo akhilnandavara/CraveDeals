@@ -28,11 +28,11 @@ React.useEffect(() => {
       <Swiper
         className="text-center"
         modules={[Navigation]}
-        slidesPerView={5}
-        spaceBetween={30}
+        slidesPerView={3}
+        spaceBetween={20}
         cssMode={true}
-        loop={true}
         parallax={true}
+        loop={true}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
@@ -42,6 +42,13 @@ React.useEffect(() => {
             spaceBetween: 20,
             mousewheel:false,
             loop:false,
+            watchOverflow:false,
+          },
+          650: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+            mousewheel:false,
+            loop:true,
             watchOverflow:false,
           },
         }}
@@ -54,19 +61,21 @@ React.useEffect(() => {
                 alt="data"
                 className={`rounded-full object-cover cursor-pointer  `}
               />
-              <h3 className={`text-lg p-2 ${data.url === currentPath ? "text-xl font-bold" : ""}`}>{data.name}</h3>
+              <h3 className={` text-xs w-full overflow-hidden lg:text-lg  p-2 ${data.url === currentPath ? "text-xl font-bold" : ""}`}>{data.name}</h3>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
       {/* Customized navigation buttons */}
-      <div className="lg:hidden absolute  flex gap-2  right-0 text-2xl cursor-pointer">
+      <div className="lg:hidden absolute flex gap-4  text-red-400  transition-all duration-300 ease-in-out right-0 text-3xl sm:text-xl cursor-pointer">
         <button
           onClick={() => swiperRef.current?.slidePrev()}
         >
           <FaArrowLeft/>
         </button>
-        <button onClick={() => swiperRef.current?.slideNext()}>
+        <button onClick={() => swiperRef.current?.slideNext()}
+       
+        >
           <FaArrowRight/>
         </button>
       </div>

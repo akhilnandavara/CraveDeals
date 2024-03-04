@@ -12,7 +12,7 @@ export default function DineOut() {
         <div className="flex flex-col font-opensans md:gap-10 gap-[79px] p-[50px]  md:px-5 items-center justify-start w-full">
           <div className="flex flex-col md:gap-10  items-center justify-start  w-full  mb-5 mx-auto gap-[102px] lg:max-w-[1250px] md:px-5">
             <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
-            <div className="flex flex-row justify-between gap-10  w-full overflow-hidden rounded-lg">
+            <div className="flex sm:flex-col flex-row justify-between gap-10  w-full overflow-hidden rounded-lg">
               <Img
                 src="images/img_rectangle_150.png"
                 alt="image"
@@ -22,7 +22,7 @@ export default function DineOut() {
                 <Heading
                   size="s"
                   as="h1"
-                  className="!text-gray-900 !font-opensans"
+                  className="!text-gray-900  sm:text-xl !font-opensans"
                 >
                   We are Launching Soon
                 </Heading>

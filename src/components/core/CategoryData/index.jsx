@@ -11,21 +11,21 @@ export default function CategoryData() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     if (categoryName === "getAll") {
+      setLoading(true);
       (async () => {
-        console.log("inside get all restaurant List");
         const getAllRestaurant = await getRestaurantList();
         setRestoLists(getAllRestaurant);
+        setLoading(false);
       })();
     } else {
+      setLoading(true);
       (async () => {
-        console.log("inside get all restaurant List");
         const getCategoryBasedRestaurants = await getCategoryData(categoryName);
         setRestoLists(getCategoryBasedRestaurants);
       })();
+      setLoading(false);
     }
-    setLoading(false);
   }, [categoryName]);
 
   return (
