@@ -16,7 +16,7 @@ const NavbarLinks = [
   },
   {
     name: "Order Online",
-    path: "/orderonline/category/getAll",
+    path: "/orderonline",
   },
   {
     name: "Dine Out",

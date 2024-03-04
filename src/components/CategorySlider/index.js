@@ -70,10 +70,12 @@ React.useEffect(() => {
       <div className="lg:hidden absolute flex gap-4  text-red-400  transition-all duration-300 ease-in-out right-0 text-3xl sm:text-xl cursor-pointer">
         <button
           onClick={() => swiperRef.current?.slidePrev()}
+          className="bg-red-100 rounded-full p-1 hover:bg-red-50"
         >
           <FaArrowLeft/>
         </button>
         <button onClick={() => swiperRef.current?.slideNext()}
+         className="bg-red-100 rounded-full p-1 hover:bg-red-50"
        
         >
           <FaArrowRight/>
