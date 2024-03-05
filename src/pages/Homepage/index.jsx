@@ -23,7 +23,7 @@ const HomepagePage = () => {
       <div className="bg-gray-50 flex flex-col font-poppins items-center justify-start mx-auto w-full overflow-x-hidden ">
         <div className="bg-gradient  flex flex-col items-center justify-start p-[50px]  md:px-5 w-full">
           <div className="flex flex-col md:gap-10  items-center justify-start  w-full   mb-5 mx-auto gap-[102px] lg:max-w-[1250px] md:px-5">
-          <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
+            <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
             <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
               <div className="flex flex-col items-center justify-start rounded-[16px]">
                 <div className="flex flex-col gap-9 items-start justify-start w-full">
@@ -47,8 +47,8 @@ const HomepagePage = () => {
                       className="leading-[200.00%] text-gray-802 text-xl w-[91%] sm:w-full"
                       size="txtPoppinsRegular20"
                     >
-                      We Find  best price in town, we find quick home delivery and
-                      dine in services.
+                      We Find best price in town, we find quick home delivery
+                      and dine in services.
                     </Text>
                   </div>
                   <div className="flex sm:flex-col flex-row gap-6 items-center justify-center  sm:w-full">
@@ -107,21 +107,21 @@ const HomepagePage = () => {
                 >
                   <span className="text-gray-902 font-opensans text-left font-bold leading-[normal]">
                     <>
-                      Our Most <br />
-                      Popular{" "}
+                    Discover the Best Deals <br />
+                    on Your Favorite{" "}
                     </>
                   </span>
                   <span className="text-red-400 font-opensans text-left font-bold leading-[normal]">
-                    Dish.
+                   Dishes! 
                   </span>
                 </Text>
                 <Text
                   className="leading-[200.00%] text-gray-801 text-xl w-full"
                   size="txtPoppinsRegular20Gray801"
                 >
-                  This dish is full of flavor and nutrition! Quinoa is a
-                  complete protein, providing all the essential amino acids your
-                  body needs, and is also a good source of fiber.
+                   Uncover the lowest prices for your favorite restaurant dishes across three
+                  top food delivery services. Save money while savoring every
+                  bite!
                 </Text>
               </div>
               <Button
@@ -133,7 +133,6 @@ const HomepagePage = () => {
             </div>
           </div>
         </div>
-      
 
         <div className="bg-red-100 flex flex-col font-opensans items-center justify-end w-[79%] lg:max-w-[1112px] mt-[120px] mx-auto p-[93px] md:px-5 rounded-[24px] ">
           <div className="flex flex-col gap-12 items-center justify-start mt-[17px] w-[79%] md:w-full">
