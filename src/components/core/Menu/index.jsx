@@ -125,7 +125,7 @@ export default function MenuItem() {
                 {/* Menu Items */}
                 <div
                   id={`collapse${sectionIndex}`}
-                  className="hidden py-4 px-4 bg-gray-100 border-b-4"
+                  className="py-4 px-4 bg-gray-100 border-b-4"
                 >
                   <div className="flex flex-col gap-4">
                     {section.menuItems.map((menuItem, menuItemIndex) => {
@@ -186,7 +186,7 @@ export default function MenuItem() {
                               <div className="flex absolute  justify-between items-center gap-4 ">
                                 {/* decrease qnty */}
                                 <div
-                                  className="cursor-pointer p-1   rounded-md hover:bg-gray-400  bg-gray-400_63"
+                                  className="cursor-pointer p-2   rounded-md hover:bg-gray-400  bg-gray-400_63"
                                   onClick={() =>
                                     handleDecreaseQuantity(
                                       restaurantId,
@@ -210,7 +210,7 @@ export default function MenuItem() {
                                   </svg>
                                 </div>
 
-                                <div className=" text-sm  lg:text-2xl rounded-md hover:bg-gray-400 p-1 ">
+                                <div className=" text-sm  lg:text-2xl rounded-md hover:bg-gray-400 p-2 ">
                                   {cartItem &&
                                     cartItem.items.find(
                                       (item) => item._id === menuItem._id
@@ -219,7 +219,7 @@ export default function MenuItem() {
 
                                 {/* increase qnty */}
                                 <div
-                                  className="cursor-pointer p-1 rounded-md  hover:bg-gray-400  bg-gray-400_63"
+                                  className="cursor-pointer p-2 rounded-md  hover:bg-gray-400  bg-gray-400_63"
                                   onClick={() =>
                                     handleIncreaseQuantity(
                                       restaurantId,
@@ -245,7 +245,7 @@ export default function MenuItem() {
                               </div>
                             ) : (
                               <button
-                                className="p-1  lg:p-4 absolute  lg:max-w-[80%] flex items-center justify-center  w-fit rounded-md hover:bg-gray-400  bg-gray-400_63"
+                                className="p-2  lg:p-4 absolute  lg:max-w-[80%] flex items-center justify-center  w-fit rounded-md hover:bg-gray-400  bg-gray-400_63"
                                 key={menuItem._id}
                                 onClick={() =>
                                   handleAddToCart(restaurantId, {

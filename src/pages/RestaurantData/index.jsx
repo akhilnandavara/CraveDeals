@@ -3,13 +3,12 @@ import {
   Link,
   Outlet,
   useLocation,
-  useNavigate,
   useParams,
 } from "react-router-dom";
 import { FaDirections, FaStar } from "react-icons/fa";
 import { getRestaurantData } from "Service/operations/RestaurantApi";
 import NavBar from "components/Navbar";
-import { Button, Img, Text } from "components";
+import { Button, Text } from "components";
 import { useDispatch, useSelector } from "react-redux";
 import { setRestaurantData } from "slices/restaurantSlice";
 import Footer from "components/Footer";
@@ -59,6 +58,7 @@ export default function RestaurantDataPage() {
       const res = await getRestaurantData(restaurantId);
       dispatch(setRestaurantData(res));
       setLoading(false);
+      window.scrollTo(0, 0);
     })();
   }, []);
 

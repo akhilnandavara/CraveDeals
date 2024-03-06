@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import {useLocation } from "react-router-dom";
 
@@ -15,6 +15,10 @@ const RestaurantPage = () => {
 
   const match = path.match(/\/category\/(.+)/);
   const categoryPath = match ? match[1] : "getAll";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

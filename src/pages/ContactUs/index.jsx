@@ -1,10 +1,13 @@
-import { Button, Img, Input, Text, TextArea } from "components";
+import { Button, Input, Text, TextArea } from "components";
 import Footer from "components/Footer";
 import NavBar from "components/Navbar";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function ContactUs() {
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
  
   return (
     <>

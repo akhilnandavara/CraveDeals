@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
 import {
   Button,
   Img,
-  Line,
-  List,
-  PagerIndicator,
-  RatingBar,
-  Slider,
   Text,
 } from "components";
 import Footer from "components/Footer";
@@ -17,6 +12,9 @@ import NavBar from "components/Navbar";
 
 const HomepagePage = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -76,8 +74,8 @@ const HomepagePage = () => {
           </div>
         </div>
         <div className="bg-green-50 flex flex-row items-center justify-center mt-[139px] p-3.5 w-full">
-          <div className="flex md:flex-col flex-row gap-[13px] items-start justify-start lg:ml-[149px] md:px-5 w-[79%] lg:max-w-[1250px]">
-            <div className="md:h-[558px] lg:h-[646px] relative w-3/5 md:w-full">
+          <div className="flex md:flex-col flex-row gap-[13px] items-start justify-start lg:ml-[149px] md:px-5  w-[90%] lg:max-w-[1250px]">
+            <div className="md:h-[558px] lg:h-[646px] relative w-3/5 md:w-full ">
               <Img
                 className="absolute h-[558px] inset-y-[0] left-[4%] my-auto object-cover w-[85%]"
                 src="images/img_kindpng3443995.png"
@@ -107,7 +105,7 @@ const HomepagePage = () => {
                 >
                   <span className="text-gray-902 font-opensans text-left font-bold leading-[normal]">
                     <>
-                    Discover the Best Deals <br />
+                    Discover the Best Deals 
                     on Your Favorite{" "}
                     </>
                   </span>

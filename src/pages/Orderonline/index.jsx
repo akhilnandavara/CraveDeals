@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Text } from "components";
 import Footer from "components/Footer";
@@ -11,6 +11,9 @@ import { Outlet } from "react-router-dom";
 
 const OrderonlinePage = () => {
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
      <div className="bg-gray-50 flex flex-col font-poppins sm:gap-10 md:gap-10 gap-[140px] items-center justify-end mx-auto  w-full ">
