@@ -17,7 +17,6 @@ const navigate=useNavigate();
 
 
 const [currentPath, setCurrentPath] = React.useState("getAll");
-  
 
 React.useEffect(() => {
   navigate(`category/${currentPath}`);

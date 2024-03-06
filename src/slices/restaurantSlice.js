@@ -4,14 +4,19 @@ const restaurantSlice = createSlice({
   name: 'restaurant',
   initialState: {
     restaurantData: [],
+    loading: false,
   },
   reducers: {
     setRestaurantData: (state, action) => {
       state.restaurantData = action.payload;
     },
+    setLoading: (state, action) => {
+      console.log("loading",action.payload);
+      state.loading = action.payload;
+    },
   },
 });
 
 // Export actions and reducer from the slice
-export const { setRestaurantData } = restaurantSlice.actions;
+export const { setRestaurantData ,setLoading} = restaurantSlice.actions;
 export default restaurantSlice.reducer;

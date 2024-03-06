@@ -3,34 +3,40 @@ import { getCategoryData } from "Service/operations/categoryAPi";
 import RestaurantCard from "components/RestaurantCard";
 import getRandomLoader from "components/loader";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { setLoading } from "slices/restaurantSlice";
+
 
 export default function CategoryData() {
   const { categoryName } = useParams();
   const [restoLists, setRestoLists] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const {loading}= useSelector((state) => state.restaurant);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
+    dispatch(setLoading(true));
     if (categoryName === "getAll") {
-      setLoading(true);
       (async () => {
         const getAllRestaurant = await getRestaurantList();
         setRestoLists(getAllRestaurant);
-        setLoading(false);
       })();
+    
     } else {
-      setLoading(true);
+     
       (async () => {
         const getCategoryBasedRestaurants = await getCategoryData(categoryName);
         setRestoLists(getCategoryBasedRestaurants);
       })();
-      setLoading(false);
     }
+    dispatch(setLoading(false));
   }, [categoryName]);
+
 
   return (
     <>
-      {loading ? (
+      { loading ? (
         <div className="flex items-center justify-center h-full w-full">
           <img src={getRandomLoader()} alt="loading..." className="h-28" />
         </div>
