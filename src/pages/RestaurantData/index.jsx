@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useParams,
-} from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { FaDirections, FaStar } from "react-icons/fa";
 import { getRestaurantData } from "Service/operations/RestaurantApi";
 import NavBar from "components/Navbar";
@@ -14,6 +9,7 @@ import { setRestaurantData } from "slices/restaurantSlice";
 import Footer from "components/Footer";
 import getRandomLoader from "components/loader";
 
+// Array of filter buttons for the restaurant details page
 const filterButtons = [
   {
     id: 1,
@@ -32,15 +28,20 @@ const filterButtons = [
   },
 ];
 
+// Component for rendering restaurant details page
 export default function RestaurantDataPage() {
+  // Extracting restaurantId from URL params
   let { restaurantId } = useParams();
 
+  // State for managing loading state
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
-  const { restaurantData } = useSelector((state) => state.restaurant);
+  const dispatch = useDispatch(); // Redux dispatch function
+  const { restaurantData } = useSelector((state) => state.restaurant); // Selecting restaurant data from Redux store
 
+  // Hook for accessing the current location
   const location = useLocation();
 
+  // Function to check if the current route matches the provided path
   const matchRoute = (path) => {
     if (path === "") {
       return (
@@ -52,16 +53,19 @@ export default function RestaurantDataPage() {
     }
   };
 
+  // Effect hook to fetch restaurant data when the component mounts
   useEffect(() => {
+    // Async function to fetch restaurant data
     (async () => {
-      setLoading(true);
-      const res = await getRestaurantData(restaurantId);
-      dispatch(setRestaurantData(res));
-      setLoading(false);
-      window.scrollTo(0, 0);
+      setLoading(true); // Set loading state to true
+      const res = await getRestaurantData(restaurantId); // Fetch restaurant data
+      dispatch(setRestaurantData(res)); // Dispatch action to set restaurant data in Redux store
+      setLoading(false); // Set loading state to false
+      window.scrollTo(0, 0); // Scroll to top of the page
     })();
   }, []);
 
+  // Function to get today's operating hours for the restaurant
   function getTodaysOperatingHours() {
     const today = new Date().toLocaleString("en-us", { weekday: "long" });
     const operatingHours = restaurantData?.googleData?.operatingHours?.find(
@@ -70,33 +74,44 @@ export default function RestaurantDataPage() {
 
     if (operatingHours) {
       const timing = operatingHours.substring(operatingHours.indexOf(":") + 2);
-    
+
       const isOpen = isCurrentlyOpen(timing);
-      return isOpen ? <div> <span className="font-light text-red-400">Closes at </span> {timing.split(" to ")[1]} </div>:<div><span className="font-light text-red-400">Opens at</span> {timing.split(" to ")[0]}</div>
+      return isOpen ? (
+        <div>
+          {" "}
+          <span className="font-light text-red-400">Closes at </span>{" "}
+          {timing.split(" to ")[1]}{" "}
+        </div>
+      ) : (
+        <div>
+          <span className="font-light text-red-400">Opens at</span>{" "}
+          {timing.split(" to ")[0]}
+        </div>
+      );
     } else {
       return "Operating hours not available";
     }
   }
 
+  // Function to check if the restaurant is currently open
   function isCurrentlyOpen(timingString) {
-
     const now = new Date();
-  
+
     const [startTimeStr, endTimeStr] = timingString.split(" to ");
 
     const startTime = parseTime(startTimeStr);
     let endTime = parseTime(endTimeStr);
 
-    
     // Adjust end time if it's on the next day
     if (endTime < startTime) {
       endTime.setDate(endTime.getDate() + 1);
     }
 
     return now >= startTime && now <= endTime;
-}
+  }
 
-function parseTime(timeStr) {
+  // Function to parse time string and return Date object
+  function parseTime(timeStr) {
     if (!timeStr) return null; // Return null if timeStr is undefined or null
 
     const trimmedTimeStr = timeStr.trim(); // Remove leading and trailing spaces
@@ -112,23 +127,23 @@ function parseTime(timeStr) {
 
     // Adjust hour for PM times
     if (period && period.toLowerCase() === "pm" && hour < 12) {
-        hour += 12;
+      hour += 12;
     }
 
     // If the hour is 12 am (midnight), set it to 0
     if (period && period.toLowerCase() === "am" && hour === 12) {
-        hour = 0;
+      hour = 0;
     }
 
     // If the hour is a single digit, prepend '0' to it
     if (hour < 10) {
-        hour = "0" + hour;
+      hour = "0" + hour;
     }
 
     // Parse minute if available, otherwise set it to 0
     let minute = 0;
     if (minuteStr) {
-        minute = parseInt(minuteStr);
+      minute = parseInt(minuteStr);
     }
 
     // Create a new Date object and set the hours and minutes
@@ -136,7 +151,7 @@ function parseTime(timeStr) {
     time.setHours(hour, minute, 0, 0);
 
     return time;
-}
+  }
   return (
     <>
       {loading ? (
@@ -195,7 +210,6 @@ function parseTime(timeStr) {
 
                           <Text className=" sm:w-[60%] pb-1 border-gray-700 border-b border-dotted  bottom-0 ">
                             Google Ratings
-                        
                           </Text>
                         </div>
                       </div>

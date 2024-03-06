@@ -2,33 +2,46 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoIosArrowDown, IoIosArrowUp, IoMdAdd } from "react-icons/io";
 
+// Importing Redux actions from cartSlice
 import {
   addToCart,
   decreaseQuantity,
   increaseQuantity,
 } from "../../../slices/cartSlice";
+
+// Importing a utility function to get a random loader component
 import getRandomLoader from "components/loader";
+
+// Importing an icon component for currency sign
 import { FaRupeeSign } from "react-icons/fa";
+
+// Importing custom components
 import { Button, Img } from "components";
+
+// Importing a hook for navigation
 import { useNavigate } from "react-router-dom";
 
 export default function MenuItem() {
+  // Selecting data from Redux store
   const { restaurantData } = useSelector((state) => state.restaurant);
   const carts = useSelector((state) => state.cart.carts);
 
+  // State variables for loading, collapsed sections, and full description toggle
   const [loading, setLoading] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState([]);
+  const [showFullDescription, setShowFullDescription] = useState([]);
 
-  const cart = useSelector((state) => state.cart);
+  // Redux dispatch function and navigation hook
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Destructuring data from restaurantData
   const { menu, name, _id, magicPinOffers, swiggyOffers, zomatoOffers } =
     restaurantData;
   const restaurantName = name;
-
   const restaurantId = _id;
 
+  // Function to add an item to the cart
   const handleAddToCart = (restaurantId, data) => {
     dispatch(
       addToCart({
@@ -42,6 +55,7 @@ export default function MenuItem() {
     );
   };
 
+  // Functions to increase and decrease item quantity in the cart
   const handleDecreaseQuantity = (restaurantId, itemId) => {
     dispatch(decreaseQuantity({ restaurantId, itemId }));
   };
@@ -49,6 +63,7 @@ export default function MenuItem() {
     dispatch(increaseQuantity({ restaurantId, itemId }));
   };
 
+  // Function to toggle section collapse
   const toggleSection = (sectionIndex) => {
     setIsCollapsed((prevSections) => {
       if (prevSections.includes(sectionIndex)) {
@@ -59,10 +74,8 @@ export default function MenuItem() {
     });
   };
 
-  const [showFullDescription, setShowFullDescription] = useState([]);
-
+  // Function to toggle full description display
   const toggleDescription = (menuItemIndex) => {
-    console.log("menuItemIndex", menuItemIndex);
     setShowFullDescription((prevSections) => {
       if (prevSections.includes(menuItemIndex)) {
         return prevSections.filter((index) => index !== menuItemIndex);
@@ -72,9 +85,9 @@ export default function MenuItem() {
     });
   };
 
+  // Effect hook to trigger bouncing animation on the cart icon
   useEffect(() => {
     const interval = setInterval(() => {
-      // Trigger the bouncing animation here
       const cartIcon = document.getElementById('cartIcon');
       if (cartIcon) {
         cartIcon.classList.add('animate-bounce');
@@ -90,7 +103,7 @@ export default function MenuItem() {
   return (
     <div>
       {loading ? (
-        <div className="flex  items-center justify-center h-full w-full">
+        <div className="flex items-center justify-center h-full w-full">
           <img src={getRandomLoader()} alt="loading..." className="h-28" />
         </div>
       ) : (
@@ -101,14 +114,14 @@ export default function MenuItem() {
                 {/* Section Heading */}
                 <h2 className="w-full">
                   <button
-                    className="flex   justify-between w-full text-sm text-left  p-4 lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200 "
+                    className="flex justify-between w-full text-sm text-left p-4 lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200"
                     type="button"
                     onClick={() => {
                       const panel = document.getElementById(
                         `collapse${sectionIndex}`
                       );
                       panel.classList.toggle("hidden");
-                      toggleSection(sectionIndex); //this is the function that is called to set arrow  in header section when the button is clicked
+                      toggleSection(sectionIndex);
                     }}
                   >
                     {section.sectionHeading}
@@ -129,10 +142,10 @@ export default function MenuItem() {
                 >
                   <div className="flex flex-col gap-4">
                     {section.menuItems.map((menuItem, menuItemIndex) => {
-                      const isInCart = cart.carts.some((cartItem) =>
+                      const isInCart = carts.some((cartItem) =>
                         cartItem.items.some((item) => item._id === menuItem._id)
                       );
-                      const cartItem = cart.carts.find((cartItem) =>
+                      const cartItem = carts.find((cartItem) =>
                         cartItem.items.some((item) => item._id === menuItem._id)
                       );
                       return (
@@ -158,7 +171,7 @@ export default function MenuItem() {
                                   `${menuItem.description.slice(0, 100)}...`}
                               {menuItem.description.length > 100 && (
                                 <div
-                                  className="text-xs   font-light underline cursor-pointer"
+                                  className="text-xs font-light underline cursor-pointer"
                                   onClick={() =>
                                     toggleDescription(menuItemIndex)
                                   }
@@ -172,21 +185,21 @@ export default function MenuItem() {
                           </div>
 
                           {/* image and add to cart button right */}
-                          <div className="flex relative  flex-col gap-2 items-center justify-center w-[30%] lg:w-[20%]">
+                          <div className="flex relative flex-col gap-2 items-center justify-center w-[30%] lg:w-[20%]">
                             {/* Image */}
                             {menuItem.image && (
                               <img
                                 src={menuItem.image}
                                 alt={menuItem.name}
-                                className="w-full  object-cover rounded-md"
+                                className="w-full object-cover rounded-md"
                               />
                             )}
                             {/* Add to Cart */}
                             {isInCart ? (
-                              <div className="flex absolute  justify-between items-center gap-4 ">
+                              <div className="flex absolute justify-between items-center gap-4">
                                 {/* decrease qnty */}
                                 <div
-                                  className="cursor-pointer p-2   rounded-md hover:bg-gray-400  bg-gray-400_63"
+                                  className="cursor-pointer p-2 rounded-md hover:bg-gray-400 bg-gray-400_63"
                                   onClick={() =>
                                     handleDecreaseQuantity(
                                       restaurantId,
@@ -196,7 +209,7 @@ export default function MenuItem() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className=" h-4 w-4 lg:h-6 lg:w-6"
+                                    className="h-4 w-4 lg:h-6 lg:w-6"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -210,7 +223,7 @@ export default function MenuItem() {
                                   </svg>
                                 </div>
 
-                                <div className=" text-sm  lg:text-2xl rounded-md hover:bg-gray-400 p-2 ">
+                                <div className="text-sm lg:text-2xl rounded-md hover:bg-gray-400 p-2">
                                   {cartItem &&
                                     cartItem.items.find(
                                       (item) => item._id === menuItem._id
@@ -219,7 +232,7 @@ export default function MenuItem() {
 
                                 {/* increase qnty */}
                                 <div
-                                  className="cursor-pointer p-2 rounded-md  hover:bg-gray-400  bg-gray-400_63"
+                                  className="cursor-pointer p-2 rounded-md hover:bg-gray-400 bg-gray-400_63"
                                   onClick={() =>
                                     handleIncreaseQuantity(
                                       restaurantId,
@@ -229,7 +242,7 @@ export default function MenuItem() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className=" h-4 w-4 lg:h-6 lg:w-6"
+                                    className="h-4 w-4 lg:h-6 lg:w-6"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -245,7 +258,7 @@ export default function MenuItem() {
                               </div>
                             ) : (
                               <button
-                                className="p-2  lg:p-4 absolute  lg:max-w-[80%] flex items-center justify-center  w-fit rounded-md hover:bg-gray-400  bg-gray-400_63"
+                                className="p-2 lg:p-4 absolute lg:max-w-[80%] flex items-center justify-center w-fit rounded-md hover:bg-gray-400 bg-gray-400_63"
                                 key={menuItem._id}
                                 onClick={() =>
                                   handleAddToCart(restaurantId, {
@@ -287,25 +300,25 @@ export default function MenuItem() {
             ))}
           </div>
           
-          {/* cart  */}
-        {carts.length > 0 && 
-        <Button
-        id="cartIcon"
-          className={`fixed bg-gray-50 z-0 bottom-10 right-0  xl:right-[15%] cursor-pointer  flex h-[50px] items-center justify-center rounded-full w-[50px] `}
-          onClick={() => navigate("/cart")}
-          leftIcon={
-            <Img
-              className="h-6  lg:h-10  m-[13px] "
-              src={"/images/img_cart.svg"}
-              alt="cart"
-            />
+          {/* Cart Icon */}
+          {carts.length > 0 && 
+            <Button
+              id="cartIcon"
+              className={`fixed bg-gray-50 z-0 bottom-10 right-0 xl:right-[15%] cursor-pointer flex h-[50px] items-center justify-center rounded-full w-[50px] `}
+              onClick={() => navigate("/cart")}
+              leftIcon={
+                <Img
+                  className="h-6 lg:h-10 m-[13px]"
+                  src={"/images/img_cart.svg"}
+                  alt="cart"
+                />
+              }
+            >
+              <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit right-0 text-xs">
+                {carts.length}
+              </div>
+            </Button>
           }
-        >
-          <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit  right-0 text-xs">
-            {carts.length}
-          </div>
-        </Button>
-        }
         </div>
       )}
     </div>

@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 export default function ContactUs() {
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);//scroll to top when component is mounted
   }, []);
  
   return (

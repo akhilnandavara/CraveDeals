@@ -20,13 +20,14 @@ import { CiShoppingBasket } from "react-icons/ci";
 import Footer from "components/Footer";
 
 export default function Cart() {
+  // Redux state and dispatch setup
   const { carts } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [filterButtons, setFilterButtons] = React.useState({});
 
+  // Effect to initialize filter state for each restaurant
   React.useEffect(() => {
-    // Initialize filter state for each restaurant
     const initialFilterButtons = {};
     carts.forEach((resto) => {
       initialFilterButtons[resto.restaurantId] = "swiggy"; // Default filter button for each restaurant
@@ -35,6 +36,7 @@ export default function Cart() {
     window.scrollTo(0, 0);
   }, [carts]);
 
+  // Handler for changing filter buttons
   const handleFilter = (restaurantId, filter) => {
     setFilterButtons((prevState) => ({
       ...prevState,
@@ -42,10 +44,12 @@ export default function Cart() {
     }));
   };
 
+  // Handler for decreasing item quantity in cart
   const handleDecreaseQuantity = (restaurantId, itemId) => {
     dispatch(decreaseQuantity({ restaurantId, itemId }));
   };
 
+  // Handler for increasing item quantity in cart
   const handleIncreaseQuantity = (restaurantId, itemId) => {
     dispatch(increaseQuantity({ restaurantId, itemId }));
   };
@@ -66,7 +70,7 @@ export default function Cart() {
             </div>
           )}
 
-          {/* restaurant card */}
+          {/* Conditional rendering for empty and non-empty carts */}
           <div className="w-full font-opensans">
             {!carts.length ? (
               <div className="flex flex-col  font-opensans gap-6 justify-center items-center">
@@ -92,7 +96,7 @@ export default function Cart() {
               </div>
             ) : (
               <>
-                {/* Clear cart button */}
+                {/* Button to clear the entire cart */}
                 <div className="flex justify-end">
                   <button
                     className="text-red-400 text-lg my-4 "
@@ -101,12 +105,13 @@ export default function Cart() {
                     Clear Cart
                   </button>
                 </div>
-                  <Line
-                      className={"border-t-4 my-4 border-gray-400_63 border-dotted"}
-                    />
+                <Line
+                  className={"border-t-4 my-4 border-gray-400_63 border-dotted"}
+                />
+                {/* Mapping through each restaurant in the cart */}
                 {carts.map((resto, index) => (
                   <div key={index} className="flex flex-col gap-5 w-full">
-                    {/* restaurant name */}
+                    {/* Displaying restaurant name */}
                     <div className="flex justify-between items-center p-2 ">
                       <div className="flex items-center">
                         <Text className="text-3xl" font="opensans">
@@ -129,7 +134,7 @@ export default function Cart() {
                       </div>
                     </div>
 
-                    {/* Filter buttons */}
+                    {/* Filter buttons for each restaurant */}
                     <div className="flex gap-4 w-full">
                       <Button
                         className={`cursor-pointer w-full py-5 md:py-3 lg:min-w-[10rem] rounded-full text-center text-gray-900 text-lg ${
@@ -184,7 +189,7 @@ export default function Cart() {
                       <Tbody>
                         {resto.items.map((item, index) => (
                           <Tr key={index} className="text-center ">
-                            {/* image and title */}
+                            {/* Image and title */}
                             <Td className="flex gap-2 w-full p-4 ">
                               {item.image && (
                                 <img
@@ -197,10 +202,9 @@ export default function Cart() {
                                 {item.ItemName}
                               </Text>
                             </Td>
-                            {/* quantity */}
+                            {/* Quantity controls */}
                             <Td>
                               <div className="flex  sm:my-2 gap-2 sm:justify-start justify-center items-center">
-                                {/* decrease quantity */}
                                 <Button
                                   className="lg:p-2 rounded-md bg-gray-400_63"
                                   onClick={() =>
@@ -225,9 +229,7 @@ export default function Cart() {
                                     />
                                   </svg>
                                 </Button>
-                                {/* item quantity */}
                                 <Text>{item.quantity}</Text>
-                                {/* increase quantity */}
                                 <Button
                                   className="lg:p-2 rounded-md bg-gray-400_63 "
                                   onClick={() =>
@@ -254,7 +256,7 @@ export default function Cart() {
                                 </Button>
                               </div>
                             </Td>
-                            {/* price */}
+                            {/* Price */}
                             <Td>
                               {filterButtons[resto.restaurantId] ===
                                 "swiggy" && <span>₹ {item.swiggyPrice}</span>}
@@ -280,7 +282,7 @@ export default function Cart() {
                                 </span>
                               )}
                             </Td>
-                            {/* delete item */}
+                            {/* Delete item */}
                             <Td>
                               <Button
                                 className="text-red-400 text-xl  sm:my-2"
@@ -298,7 +300,6 @@ export default function Cart() {
                             </Td>
                           </Tr>
                         ))}
-
                         {/* Total row */}
                         <Tr>
                           <Td colSpan="1">
@@ -319,7 +320,6 @@ export default function Cart() {
                           </Text>
                         </Tr>
                       </Tbody>
-
                       <Text className="sm:hidden text-xs ">
                         (The total amount excludes package and delivery fees.)
                       </Text>
@@ -334,7 +334,9 @@ export default function Cart() {
                       />
                     </div>
                     <Line
-                      className={"border-t-4 my-4 border-gray-400_63 border-dotted"}
+                      className={
+                        "border-t-4 my-4 border-gray-400_63 border-dotted"
+                      }
                     />
                   </div>
                 ))}

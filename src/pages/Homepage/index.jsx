@@ -7,13 +7,13 @@ import {
   Img,
   Text,
 } from "components";
-import Footer from "components/Footer";
-import NavBar from "components/Navbar";
+import Footer from "components/Footer"; //importing the footer component
+import NavBar from "components/Navbar"; //importing the navbar component
 
 const HomepagePage = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); //scroll to top when component loads
   }, []);
 
   return (

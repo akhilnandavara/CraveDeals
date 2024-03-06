@@ -1,112 +1,56 @@
-## CraveDeals-Find your Best Restaurant Deals
+# CraveDeals Frontend
 
-## Description
+The frontend component of CraveDeals provides a user-friendly interface for educational and non-commercial purposes, allowing users to browse and discover the best deals and offers from top restaurants in Bangalore. Here's an overview of the frontend architecture and technologies used:
 
-- This React application is built using [create-react-app](https://create-react-app.dev/).
-- It uses [Tailwind CSS](https://tailwindcss.com/)
-- The application is generated in JavaScript.
+## Overview
 
-## Pre-requisites
+CraveDeals frontend is built using React.js for its component-based architecture and dynamic user interface. Tailwind CSS is utilized for styling, providing rapid UI development and customization. Axios is used for making HTTP requests to the backend API, enabling seamless communication between the frontend and backend components. Additionally, Redux is used for state management, allowing fast content load by storing restaurant data in the Redux store.
 
-- [git](https://git-scm.com/) - v2.13 or greater
-- [NodeJS](https://nodejs.org/en/) - v16 or greater
-- [npm](https://www.npmjs.com/) - v6 or greater
+## Technologies Used
 
-## Running in dev environment
+- **React.js**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: Utility-first CSS framework for designing modern and responsive user interfaces.
+- **Axios**: Promise-based HTTP client for making requests to the backend API.
+- **Redux**: State management library for JavaScript applications.
 
-1.  `cd YOUR_APPLICATION`
-2.  `npm install`
-3.  `npm start`
+## Installation and Setup
 
-## .env file
+1. Clone the frontend repository from GitHub: [CraveDeals Frontend Repository](https://github.com/akhilnandav/crave-deals-frontend).
+2. Navigate to the project directory and install dependencies using Yarn:
 
-This file contains various environment variables that you can configure.
+   ```
+   yarn install
+   ```
+
+3. Ensure the backend server is running and accessible from the frontend.
+4. Start the frontend development server:
+
+   ```
+   yarn start
+   ```
+
+5. The frontend application will be available at `http://localhost:3000` in your web browser.
 
 ## Folder Structure
 
-```
- .
- ├── package.json
- ├── postcss.config.js
- ├── public
- │   ├── assets
- │   │   └── images --------- All Project Images
- │   ├── favicon.ico
- │   ├── index.html
- │   ├── manifest.json
- │   └── robots.txt
- ├── README.md
- ├── src
- │   ├── App.jsx
- │   ├── assets
- │   │   └── fonts ---------- Project fonts
- │   ├── components --------- UI and Detected Common Components
- │   ├── constants ---------- Project constants, eg: string consts
- │   ├── hooks -------------- Helpful Hooks
- │   ├── index.jsx
- │   ├── pages -------------- All route pages
- │   ├── Routes.jsx ---------- Routing
- │   ├── styles
- │   │   ├── index.css ------ Other Global Styles
- │   │   └── tailwind.css --- Default Tailwind modules
- │   └── util
- │       └── index.jsx ------- Helpful utils
- └── tailwind.config.js ----- Entire theme config, colors, fonts etc.
-```
+The frontend project follows a standard React.js folder structure:
 
-For the project to build, **these files must exist with exact filenames**:
+- **public**: Contains static assets accessible directly from the application. You can place images, icons, fonts, and other resources in this folder. These assets can be referenced using relative paths in your code.
+- **src**: Contains the source code files for the frontend application.
+  - **components**: Holds reusable React components used throughout the application.
+  - **pages**: Contains top-level components representing different pages of the application.
+  - **styles**: Includes CSS or SCSS files for styling the components.
+  - **services**: Provides utility functions or services, such as API communication using Axios.
+  - **redux**: Contains Redux-related files such as actions, reducers, and store configuration.
 
-- `public/index.html` is the page template;
-- `src/index.jsx` is the JavaScript entry point.
+## Contributing
 
-You may create subdirectories inside src.
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time.
-
-## Installing a Dependency
-
-You can install any dependencies (for example, React Router) with `npm`:
-
-```sh
-npm install --save react-router
-```
-
-Alternatively you may use `yarn`:
-
-```sh
-yarn add react-router
-```
+Contributions to the frontend of CraveDeals, for educational and non-commercial purposes, are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
 
 ## License
 
-MIT License
+This frontend component of CraveDeals is licensed under the MIT License for educational and non-commercial use. See the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2024 Akhil
+## Acknowledgments
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+- Special thanks to the React.js, Tailwind CSS, Axios, and Redux developers and communities for their invaluable contributions to open-source projects.
