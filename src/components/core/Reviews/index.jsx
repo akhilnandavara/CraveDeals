@@ -1,35 +1,45 @@
-import { RatingBar } from "components";
-import React from "react";
-import { useSelector } from "react-redux";
+import { RatingBar } from "components"; // Importing the RatingBar component from custom components
+import React from "react"; // Importing React library
+import { useSelector } from "react-redux"; // Importing useSelector hook from React Redux
 
+// Review component
 export default function Review() {
+  // Selecting restaurantData from Redux store
   const { restaurantData } = useSelector((state) => state.restaurant);
 
+  // Destructuring reviews from restaurantData.googleData
   const { reviews } = restaurantData.googleData;
-  console.log(reviews[1].profileImg)
+
   return (
     <div>
+      {/* Title for Google Reviews */}
       <h2 className="text-2xl font-bold font-poppins py-6">Google Reviews </h2>
       <div className="flex flex-col gap-6 font-poppins ">
+        {/* Mapping over each review */}
         {reviews.map((review, index) => (
-          // main div for each review
+          // Main div for each review
           <div key={index} className="flex flex-col gap-4">
-            {/* section 1 */}
+            {/* Section 1: Reviewer's info */}
             <div className="flex gap-2">
+              {/* Reviewer's profile image */}
               <img src={review.profileImg} alt="" className=" w-fit" />
               <div className="flex flex-col gap-1">
-              <p className="font-semibold">{review.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
+                {/* Reviewer's name */}
+                <p className="font-semibold">{review.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
+                {/* Reviewer's introduction */}
                 <p className="text-gray-600">{review?.intro}</p>
               </div>
             </div>
-            {/* section 2 */}
+            {/* Section 2: Review details */}
             <div>
-              {/* star */}
+              {/* Star rating */}
               <div className="flex gap-4 items-center">
-                  <RatingBar starCount={5}  value={review.star.split(" ")[0]} size={24} />
+                {/* RatingBar component */}
+                <RatingBar starCount={5} value={review.star.split(" ")[0]} size={24} />
+                {/* Review posting time */}
                 <p>{review?.postedTime}</p>
               </div>
-              {/* description */}
+              {/* Review description */}
               <p className="max-w-[80%] font-light">{review.reviewDesc}</p>
             </div>
           </div>

@@ -15,7 +15,7 @@ CraveDeals frontend is built using React.js for its component-based architecture
 
 ## Installation and Setup
 
-1. Clone the frontend repository from GitHub: [CraveDeals Frontend Repository](https://github.com/akhilnandavara/crave-deals-frontend).
+1. Clone the frontend repository from GitHub: [CraveDeals Frontend Repository](https://github.com/akhilnandavara/CraveDeals).
 2. Navigate to the project directory and install dependencies using Yarn:
 
    ```
