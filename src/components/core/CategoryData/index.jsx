@@ -42,7 +42,7 @@ export default function CategoryData() {
         </div>
         ) : (
         <div className="flex flex-col items-center justify-start rounded-[40px] w-full ">
-          {restoLists.length === 0 && ( <div className="my-10 text-xl">No Restaurant Found For This Category</div>)}
+          {!loading && restoLists.length === 0 && ( <div className="my-10 text-xl">No Restaurant Found For This Category</div>)}
           <div className="md:gap-5 gap-[35px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] w-full">
             {restoLists.map((restoData, index) => (
               <React.Fragment key={`RestaurantCard${index}`}>
