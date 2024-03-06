@@ -24,7 +24,7 @@ export default function CategoryData() {
           const getCategoryBasedRestaurants = await getCategoryData(categoryName);
           setRestoLists(getCategoryBasedRestaurants);
         }
-        // dispatch(setLoading(false));
+        dispatch(setLoading(false));
       } catch (error) {
         // Handle errors
         console.error("Error fetching restaurant data:", error);
