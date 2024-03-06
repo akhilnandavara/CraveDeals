@@ -1,30 +1,31 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RxCross1 } from "react-icons/rx";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { Table, Tbody, Td, Thead, Tr } from "react-super-responsive-table";
-import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+import React from "react"; // Importing React library
+import { useDispatch, useSelector } from "react-redux"; // Importing useDispatch and useSelector hooks from React Redux
+import { RxCross1 } from "react-icons/rx"; // Importing RxCross1 icon from react-icons/rx
+import { RiDeleteBinLine } from "react-icons/ri"; // Importing RiDeleteBinLine icon from react-icons/ri
+import { Table, Tbody, Td, Thead, Tr } from "react-super-responsive-table"; // Importing table components from react-super-responsive-table
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"; // Importing table styles from react-super-responsive-table
 import {
   clearCart,
   clearRestaurantCart,
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
-} from "slices/cartSlice";
-import { FaRupeeSign } from "react-icons/fa";
-import { Button, Text, Line } from "components"; // Assuming you have these components
-import NavBar from "components/Navbar";
-import OffersSection from "components/core/OffersSection";
-import { useNavigate } from "react-router-dom";
-import { CiShoppingBasket } from "react-icons/ci";
-import Footer from "components/Footer";
+} from "slices/cartSlice"; // Importing various cart-related actions from cartSlice
+import { FaRupeeSign } from "react-icons/fa"; // Importing FaRupeeSign icon from react-icons/fa
+import { Button, Text, Line } from "components"; // Importing custom components Button, Text, and Line
+import NavBar from "components/Navbar"; // Importing Navbar component from components directory
+import OffersSection from "components/core/OffersSection"; // Importing OffersSection component from components/core directory
+import { useNavigate } from "react-router-dom"; // Importing useNavigate hook from react-router-dom
+import { CiShoppingBasket } from "react-icons/ci"; // Importing CiShoppingBasket icon from react-icons/ci
+import Footer from "components/Footer"; // Importing Footer component from components directory
 
+// Cart component
 export default function Cart() {
   // Redux state and dispatch setup
-  const { carts } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [filterButtons, setFilterButtons] = React.useState({});
+  const { carts } = useSelector((state) => state.cart); // Retrieving carts state from Redux store
+  const dispatch = useDispatch(); // Initializing useDispatch hook
+  const navigate = useNavigate(); // Initializing useNavigate hook
+  const [filterButtons, setFilterButtons] = React.useState({}); // Initializing state for filter buttons
 
   // Effect to initialize filter state for each restaurant
   React.useEffect(() => {
@@ -32,8 +33,8 @@ export default function Cart() {
     carts.forEach((resto) => {
       initialFilterButtons[resto.restaurantId] = "swiggy"; // Default filter button for each restaurant
     });
-    setFilterButtons(initialFilterButtons);
-    window.scrollTo(0, 0);
+    setFilterButtons(initialFilterButtons); // Setting initial filter buttons
+    window.scrollTo(0, 0); // Scrolling to top of the page
   }, [carts]);
 
   // Handler for changing filter buttons
@@ -136,6 +137,7 @@ export default function Cart() {
 
                     {/* Filter buttons for each restaurant */}
                     <div className="flex gap-4 w-full">
+                      {/* Swiggy filter button */}
                       <Button
                         className={`cursor-pointer w-full py-5 md:py-3 lg:min-w-[10rem] rounded-full text-center text-gray-900 text-lg ${
                           filterButtons[resto.restaurantId] === "swiggy"
@@ -148,7 +150,7 @@ export default function Cart() {
                       >
                         Swiggy
                       </Button>
-
+                      {/* Zomato filter button */}
                       <Button
                         className={`cursor-pointer w-full py-5 md:py-3 lg:min-w-[10rem] rounded-full text-center text-gray-900 text-lg ${
                           filterButtons[resto.restaurantId] === "zomato"
@@ -161,7 +163,7 @@ export default function Cart() {
                       >
                         Zomato
                       </Button>
-
+                      {/* MagicPin filter button */}
                       <Button
                         className={`cursor-pointer w-full py-5 md:py-3 lg:min-w-[10rem] rounded-full text-center text-gray-900 text-lg ${
                           filterButtons[resto.restaurantId] === "magicPin"
@@ -187,6 +189,7 @@ export default function Cart() {
                         </Tr>
                       </Thead>
                       <Tbody>
+                        {/* Mapping through each item in the restaurant */}
                         {resto.items.map((item, index) => (
                           <Tr key={index} className="text-center ">
                             {/* Image and title */}
@@ -205,6 +208,7 @@ export default function Cart() {
                             {/* Quantity controls */}
                             <Td>
                               <div className="flex  sm:my-2 gap-2 sm:justify-start justify-center items-center">
+                                {/* Button to decrease quantity */}
                                 <Button
                                   className="lg:p-2 rounded-md bg-gray-400_63"
                                   onClick={() =>
@@ -229,7 +233,9 @@ export default function Cart() {
                                     />
                                   </svg>
                                 </Button>
+                                {/* Display quantity */}
                                 <Text>{item.quantity}</Text>
+                                {/* Button to increase quantity */}
                                 <Button
                                   className="lg:p-2 rounded-md bg-gray-400_63 "
                                   onClick={() =>
@@ -258,6 +264,7 @@ export default function Cart() {
                             </Td>
                             {/* Price */}
                             <Td>
+                              {/* Displaying price based on selected filter */}
                               {filterButtons[resto.restaurantId] ===
                                 "swiggy" && <span>₹ {item.swiggyPrice}</span>}
                               {filterButtons[resto.restaurantId] ===
@@ -305,6 +312,7 @@ export default function Cart() {
                           <Td colSpan="1">
                             <span className=" flex font-bold  items-center text-lg pt-4">
                               Total: <FaRupeeSign />
+                              {/* Displaying total price */}
                               {filterButtons[resto.restaurantId] ===
                                 "magicPin" &&
                                 resto.magicPinTotalIncludingTax.toFixed(2)}
@@ -321,9 +329,10 @@ export default function Cart() {
                         </Tr>
                       </Tbody>
                       <Text className="sm:hidden text-xs ">
-                        (The total amount excludes package and delivery fees.)
+                        (The total amount excludes package and delivery fees and discounts.)
                       </Text>
                     </Table>
+                    {/* Bonus Offers Section */}
                     <div className="w-full">
                       <Text className="text-xl py-2 ">Bonus Offers</Text>
                       <OffersSection
@@ -333,6 +342,7 @@ export default function Cart() {
                         magicPinOffers={resto?.magicPinOffers}
                       />
                     </div>
+                    {/* Divider */}
                     <Line
                       className={
                         "border-t-4 my-4 border-gray-400_63 border-dotted"
@@ -345,6 +355,7 @@ export default function Cart() {
           </div>
         </div>
       </div>
+      {/* Footer */}
       <Footer className="bg-gray-901 flex font-poppins items-center justify-center mt-[120px] md:px-5 w-full " />
     </div>
   );

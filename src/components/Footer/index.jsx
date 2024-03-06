@@ -75,7 +75,7 @@ const Footer = (props) => {
                 size="txtPoppinsRegular20Gray300"
                 to={"/restaurant"}
               >
-                Restaurant
+                Restaurants
               </Link>
               <Link
                 className="mt-[34px] text-gray-300 text-lg lg:text-xl"
