@@ -41,21 +41,24 @@ const OffersSection = ({ filterButtons, zomatoOffers, swiggyOffers, magicPinOffe
     {/* Display Swiggy offers */}
     <div className={` ${activeCard === "swiggy" ? "block" : "hidden"} `}>
       <div className="flex flex-wrap py-4  gap-4">
-        {swiggyOffers?.map((offer, index) => (
+        {swiggyOffers.length ? swiggyOffers.map((offer, index) => (
           <div className="" key={`zomato-${index}`}>
             <div className="flex flex-col bg-blue-900 text-white-A700 rounded-lg  text-xs lg:text-sm md:p-2 p-4">
               <p>{offer.code.split("ABOVE").join(" ABOVE")}</p>
               <p>{offer.discount}</p>
             </div>
           </div>
-        ))}
+        ))
+        :
+        (<p >No Offers Available</p>)
+        }
       </div>
     </div>
 
     {/* Display Zomato offers */}
     <div className={` ${activeCard === "zomato" ? "block" : "hidden"} `}>
       <div className="flex flex-wrap py-4  gap-4">
-        {zomatoOffers.length ? zomatoOffers?.map((offer, index) => (
+        {zomatoOffers.length ? zomatoOffers.map((offer, index) => (
           <div className="" key={`zomato-${index}`}>
              <div className="flex flex-col bg-blue-900 text-white-A700 rounded-lg text-xs lg:text-sm  md:p-2 p-4">
               <p>{offer.code}</p>
@@ -72,14 +75,17 @@ const OffersSection = ({ filterButtons, zomatoOffers, swiggyOffers, magicPinOffe
     {/* Display MagicPin offers */}
     <div className={` ${activeCard === "magicPin" ? "block" : "hidden"} `}>
       <div className="flex flex-wrap py-4  gap-4">
-        {magicPinOffers.length && magicPinOffers.map((offer, index) => (
+        {magicPinOffers.length ? magicPinOffers.map((offer, index) => (
           <div className="" key={`zomato-${index}`}>
             <div className="flex flex-col bg-blue-900 text-white-A700 rounded-lg text-xs lg:text-sm  md:p-2 p-4">
               <p>{offer}</p>
               <p>No Code Required </p>
             </div>
           </div>
-        ))}
+        ))
+        :
+        (<p >No offers available</p>)
+        }
       </div>
     </div>
   </>

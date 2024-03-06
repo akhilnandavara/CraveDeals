@@ -33,7 +33,7 @@ export default function OverView() {
     <>
       <div className="flex lg:h-[70vh] overflow-y-scroll  overView-scrollbar overflow-x-hidden md:flex-col relative items-start flex-row">
         <div className="flex flex-col gap-4 w-[80%]">
-          <h2 className=" text-lg lg:text-3xl font-bold">About This place</h2>
+          <h2 className=" text-xl lg:text-3xl font-bold">About This place</h2>
           <div className="flex gap-2 items-center sm:text-sm">
             <h3 className="lg:text-xl text-sm">Known For</h3>
             <span className="border-2  rounded-lg p-1 hover:bg-gray-400 cursor-pointer">
@@ -51,7 +51,7 @@ export default function OverView() {
           {/* Timings */}
           <div>
             <h3 className=" text-lg lg:text-2xl font-bold py-2">Timings</h3>
-            <p className="flex gap-2 flex-col sm:text-sm">
+            <div className="flex gap-2 flex-col sm:text-sm">
               {googleData.operatingHours.map((day, index) => {
                 // Define a function to highlight the content before the colon
                 const highlightContent = (str) => {
@@ -77,19 +77,19 @@ export default function OverView() {
                   </div>
                 ) : null;
               })}
-            </p>
+            </div>
           </div>
           {/* Facilities */}
           <div>
             <h3 className=" text-lg lg:text-2xl py-2 font-bold">Facilities</h3>
-            <p className="flex gap-2 sm:text-xs">
+            <div className="flex gap-2 sm:text-xs">
               {googleData.restoOptions.map((facility, index) => (
                 <React.Fragment key={index}>
                   {facility}{" "}
                   {index !== googleData.restoOptions.length - 1 && "|"}
                 </React.Fragment>
               ))}
-            </p>
+            </div>
           </div>
         </div>
 
@@ -103,16 +103,16 @@ export default function OverView() {
           >
             {" "}
             <span className="font-bold">Website</span>
-            {googleData?.url}
+          <span className="text-gray-900_a3">{googleData?.url}</span>  
           </button>
-          <div className="flex flex-col">
-            {" "}
-            <span className="text-lg font-bold">Call</span> {googleData?.phone}
-          </div>
+          <button className="flex flex-col " onClick={()=>window.open(`tel:${googleData.phone}`,"_blank")}>
+            <span className="text-lg font-bold">Call</span> 
+           <span className="text-gray-900_a3">{googleData?.phone}</span>
+           </button>
           <div className="flex flex-col">
             {" "}
             <span className="text-lg font-bold  ">Address</span>{" "}
-            <span className="font-light"> {googleData?.address}</span>
+            <span className="font-light text-gray-900_a3"> {googleData?.address}</span>
             <CopyToClipboard
               text={googleData?.address}
               onCopy={() => setCopied(true)}

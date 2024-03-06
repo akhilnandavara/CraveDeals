@@ -43,6 +43,7 @@ export default function MenuItem() {
 
   // Function to add an item to the cart
   const handleAddToCart = (restaurantId, data) => {
+    console.log("data", data)
     dispatch(
       addToCart({
         restaurantId,
@@ -101,20 +102,20 @@ export default function MenuItem() {
   }, []);
 
   return (
-    <div>
+    <>
       {loading ? (
         <div className="flex items-center justify-center h-full w-full">
           <img src={getRandomLoader()} alt="loading..." className="h-28" />
         </div>
       ) : (
         <div>
-          <div className="w-full relative z-[10] " id="accordionPanelsStayOpenExample">
+          <div className="w-full flex flex-col gap-1 relative z-[10] " id="accordionPanelsStayOpenExample">
             {menu?.map((section, sectionIndex) => (
               <div key={sectionIndex}>
                 {/* Section Heading */}
                 <h2 className="w-full">
                   <button
-                    className="flex justify-between w-full text-sm text-left p-4 lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200"
+                    className="flex justify-between  w-full text-sm text-left p-4 lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200"
                     type="button"
                     onClick={() => {
                       const panel = document.getElementById(
@@ -160,11 +161,11 @@ export default function MenuItem() {
                             </h4>
                             <p className="flex sm:text-sm text-lg gap-1 items-center">
                               <FaRupeeSign />
-                              {restaurantName.toLowerCase() === "freshmenu"
+                              {restaurantName.toLowerCase()=== "freshmenu"
                                 ? menuItem.swiggyPrice % 1000
                                 : menuItem.swiggyPrice}
                             </p>
-                            <p className="text-xs font-light w-[80%]">
+                            <div className="text-xs font-light w-[80%]">
                               {showFullDescription.includes(menuItemIndex)
                                 ? menuItem.description
                                 : menuItem.description.length > 0 &&
@@ -181,7 +182,7 @@ export default function MenuItem() {
                                     : "Show More"}
                                 </div>
                               )}
-                            </p>
+                            </div>
                           </div>
 
                           {/* image and add to cart button right */}
@@ -265,19 +266,19 @@ export default function MenuItem() {
                                     ItemName: menuItem.name,
                                     image: menuItem.image,
                                     swiggyPrice:
-                                      restaurantName.toLowerCase() ===
+                                      restaurantName.toLowerCase()===
                                       "freshmenu"
-                                        ? menuItem.swiggyPrice % 1000
+                                        ? (menuItem.swiggyPrice && menuItem.swiggyPrice % 1000)
                                         : menuItem.swiggyPrice,
                                     zomatoPrice:
                                       restaurantName.toLowerCase() ===
                                       "freshmenu"
-                                        ? menuItem.zomatoPrice % 1000
+                                        ? (menuItem.zomatoPrice && menuItem.zomatoPrice % 1000)
                                         : menuItem.zomatoPrice,
                                     magicPinPrice:
                                       restaurantName.toLowerCase() ===
                                       "freshmenu"
-                                        ? menuItem.magicPinPrice % 1000
+                                        ? ( menuItem.magicPinPrice && menuItem.magicPinPrice % 1000)
                                         : menuItem.magicPinPrice,
                                     _id: menuItem._id,
                                   })
@@ -321,6 +322,6 @@ export default function MenuItem() {
           }
         </div>
       )}
-    </div>
+    </>
   );
 }

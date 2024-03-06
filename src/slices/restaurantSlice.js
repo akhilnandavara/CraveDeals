@@ -11,7 +11,6 @@ const restaurantSlice = createSlice({
       state.restaurantData = action.payload;
     },
     setLoading: (state, action) => {
-      console.log("loading",action.payload);
       state.loading = action.payload;
     },
   },

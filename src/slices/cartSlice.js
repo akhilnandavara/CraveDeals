@@ -35,6 +35,7 @@ export const cartSlice = createSlice({
     // Reducer for adding items to the cart
     addToCart: (state, action) => {
       // Extract payload data from the action
+      console.log("FreshMenu",action.payload)
       const { restaurantId, name, item, magicPinOffers, swiggyOffers, zomatoOffers } = action.payload;
 
       // Find the cart for the given restaurant ID
@@ -64,7 +65,7 @@ export const cartSlice = createSlice({
           existingCart.swiggyTotalPrice,
           existingCart.zomatoTotalPrice,
           existingCart.magicPinTotalPrice,
-          magicPinOffers[0].match(/\d+/)[0],
+         magicPinOffers.length > 0 ? magicPinOffers[0].match(/\d+/)[0] : null
         );
 
         existingCart.swiggyTotalIncludingTax = swiggyTotalIncludingTax;
@@ -89,7 +90,7 @@ export const cartSlice = createSlice({
             item.swiggyPrice !== undefined ? parseFloat(item.swiggyPrice) : 0,
             item.zomatoPrice !== undefined ? parseFloat(item.zomatoPrice) : 0,
             item.magicPinPrice !== undefined ? parseFloat(item.magicPinPrice) : 0,
-            magicPinOffers[0].match(/\d+/)[0],
+           magicPinOffers.length > 0 ? magicPinOffers[0].match(/\d+/)[0] : null
           ),
         };
 
@@ -158,7 +159,8 @@ export const cartSlice = createSlice({
             existingCart.swiggyTotalPrice,
             existingCart.zomatoTotalPrice,
             existingCart.magicPinTotalPrice,
-            existingCart.magicPinOffers[0].match(/\d+/)[0],
+            existingCart.magicPinOffers.length > 0 ? existingCart.magicPinOffers[0].match(/\d+/)[0] : null
+
           );
 
           existingCart.swiggyTotalIncludingTax = swiggyTotalIncludingTax;
@@ -215,7 +217,7 @@ export const cartSlice = createSlice({
               existingCart.swiggyTotalPrice,
               existingCart.zomatoTotalPrice,
               existingCart.magicPinTotalPrice,
-              existingCart.magicPinOffers[0].match(/\d+/)[0],
+              existingCart.magicPinOffers.length > 0 ? existingCart.magicPinOffers[0].match(/\d+/)[0] : null
             );
 
             existingCart.swiggyTotalIncludingTax = swiggyTotalIncludingTax;

@@ -221,7 +221,7 @@ export default function RestaurantDataPage() {
                     </p>
 
                     {/* time */}
-                    <p className="sm:text-xs">{getTodaysOperatingHours()}</p>
+                    <span className="sm:text-xs">{getTodaysOperatingHours()}</span>
 
                     {/* buttons */}
                     <Button
