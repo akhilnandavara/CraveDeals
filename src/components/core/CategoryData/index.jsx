@@ -24,7 +24,7 @@ export default function CategoryData() {
           const getCategoryBasedRestaurants = await getCategoryData(categoryName);
           setRestoLists(getCategoryBasedRestaurants);
         }
-        dispatch(setLoading(false));
+        // dispatch(setLoading(false));
       } catch (error) {
         // Handle errors
         console.error("Error fetching restaurant data:", error);
@@ -40,7 +40,7 @@ export default function CategoryData() {
     <>
       {loading ? (
         <div className="flex items-center justify-center h-full w-full">
-          <img src={getRandomLoader()} alt="loading..." className="h-28" />
+          <img src={getRandomLoader()} alt="loading..." className="h-28 " />
         </div>
       ) : (
         <div className="flex flex-col mt-6 items-center justify-start rounded-[40px] w-full ">
