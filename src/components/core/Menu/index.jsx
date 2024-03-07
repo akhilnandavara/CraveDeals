@@ -305,11 +305,11 @@ export default function MenuItem() {
           {carts.length > 0 && 
             <Button
               id="cartIcon"
-              className={`fixed bg-gray-50 z-0 bottom-10 right-0 xl:right-[15%] cursor-pointer flex h-[50px] items-center justify-center rounded-full w-[50px] `}
+              className={`fixed bottom-10 bg-gray-50 z-0  right-0  xl:right-[22%] cursor-pointer flex h-[50px] items-center justify-center rounded-full `}
               onClick={() => navigate("/cart")}
               leftIcon={
                 <Img
-                  className="h-6 lg:h-10 m-[13px]"
+                  className="h-6 lg:h-[2rem] xl:h-[4rem]  m-[.5rem]"
                   src={"/images/img_cart.svg"}
                   alt="cart"
                 />

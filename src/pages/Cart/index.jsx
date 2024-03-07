@@ -58,7 +58,7 @@ export default function Cart() {
   return (
     <div className="bg-gray-50 flex flex-col font-poppins items-center justify-end mx-auto w-full">
       <div className="flex flex-col font-opensans gap-10  p-[50px]  md:px-5 items-center justify-start w-full">
-      <div className="flex flex-col md:gap-10  items-center justify-start  w-full  mb-5 mx-auto gap-[102px] lg:max-w-[1250px] md:px-5">
+      <div className="flex flex-col md:gap-10  items-center justify-start  w-full  mb-5 mx-auto gap-[4rem] lg:max-w-[1250px] md:px-5">
         <NavBar className="flex md:flex-col flex-row md:gap-4 md:items-start items-center justify-between w-full" />
           {carts.length > 0 && (
             <div className="flex justify-start w-full font-opensans">
@@ -100,14 +100,14 @@ export default function Cart() {
                 {/* Button to clear the entire cart */}
                 <div className="flex justify-end">
                   <button
-                    className="text-red-400 text-lg my-4 "
+                    className="text-red-400 text-lg my-2 "
                     onClick={() => dispatch(clearCart())}
                   >
                     Clear Cart
                   </button>
                 </div>
                 <Line
-                  className={"border-t-4 my-4 border-gray-400_63 border-dotted"}
+                  className={"border-t-4 my-2 border-gray-400_63 border-dotted"}
                 />
                 {/* Mapping through each restaurant in the cart */}
                 {carts.map((resto, index) => (
