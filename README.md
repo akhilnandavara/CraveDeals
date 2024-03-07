@@ -31,6 +31,9 @@ CraveDeals frontend is built using React.js for its component-based architecture
 
 5. The frontend application will be available at `http://localhost:3000` in your web browser.
 
+6. To enable web app installation on Android devices, a `manifest.json` file is provided in the public directory. This file contains metadata about the web application, including its name, icons, and other properties required for Progressive Web App (PWA) installation. When accessed from an Android device, users can add the CraveDeals app to their home screens directly from the browser.
+
+
 ## Folder Structure
 
 The frontend project follows a standard React.js folder structure:
