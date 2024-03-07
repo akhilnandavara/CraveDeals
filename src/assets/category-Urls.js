@@ -27,7 +27,7 @@ exports.categoryUrls= [
     {
         name: 'FriedRice',
         imageUrl: 'https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png',
-       url:'FastFood'
+       url:'Fried Rice'
     },
     {
         name: 'Cake',

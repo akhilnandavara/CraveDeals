@@ -5,13 +5,13 @@ import { apiConnector } from "../apiConnector";
 const getCategoryDataApi = process.env.REACT_APP_BASE_URL + "/category/getCategoryData";
 
 // Function to fetch category data based on the provided category name
-export const getCategoryData = async (category) => {
+export const getCategoryData = async (searchTerm) => {
     try {
         // Making a POST request to the 'getCategoryDataApi' endpoint using the 'apiConnector' function
-        const response = await apiConnector('POST', getCategoryDataApi, { categoryName: category });
+        const response = await apiConnector('POST', getCategoryDataApi, { searchTerm });
         
         // Logging the response received from the API
-        // console.log("GET CATEGORY DATA API RESPONSE", response);
+        console.log("GET CATEGORY DATA API RESPONSE", response);
 
         // If the response indicates a failure, throw an error
         if (!response?.data?.success) {

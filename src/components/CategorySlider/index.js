@@ -4,19 +4,23 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "swiper/swiper-bundle.css";
+import { setCurrentPath } from "slices/restaurantSlice";
 
 // Initialize Swiper core modules
 import "swiper/css";
 import "swiper/css/navigation";
+import { useDispatch, useSelector } from "react-redux";
 
 const CategorySlider = ({ Urls }) => {
 
   const swiperRef = useRef();
 const navigate=useNavigate();
+const dispatch=useDispatch();
+const {currentPath} = useSelector(state=>state.restaurant)
 
 
 
-const [currentPath, setCurrentPath] = React.useState("getAll");
+
 
 React.useEffect(() => {
   navigate(`category/${currentPath}`);
@@ -54,7 +58,7 @@ React.useEffect(() => {
       >
         {Urls.map((data, index) => (
           <SwiperSlide key={index}>
-            <div onClick={()=>setCurrentPath(data.url)}>
+            <div onClick={()=>dispatch(setCurrentPath(data.url))}>
               <img
                 src={data.imageUrl}
                 alt="data"

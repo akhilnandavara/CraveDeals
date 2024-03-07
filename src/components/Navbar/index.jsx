@@ -1,8 +1,9 @@
 import React from "react";
-import { matchPath, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 import { Button, Img, Line, Text } from "components";
 import { RxCross1 } from "react-icons/rx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentPath } from "slices/restaurantSlice";
 
 
 const NavbarLinks = [
@@ -31,6 +32,7 @@ const NavbarLinks = [
 const NavBar = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = React.useState(false);
   const {carts}=useSelector(state=>state.cart)
 
@@ -40,14 +42,24 @@ const NavBar = (props) => {
       if (path === "/") {
         return location.pathname === path;
       } else {
-        // Check if the location pathname starts with the provided path
-        return location.pathname.startsWith(path);
+        // Check if the location pathname exactly matches the provided path
+        return location.pathname === path || location.pathname.startsWith(path + "/");
       }
     } else {
       return false; // Handle the case where pathname is not a string
     }
   };
-
+  
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (value.trim() !== '') {
+        dispatch(setCurrentPath(value)); // Dispatch action with the current search term
+    } else {
+        // If input is empty, set the state back to the default value (e.g., "getAll")
+        dispatch(setCurrentPath('getAll'));
+    }
+};
+  
   return (
     <div className={props.className}>
       <div className="header-row">
@@ -81,7 +93,9 @@ const NavBar = (props) => {
                 matchRoute(link.path) ? "text-red-400" : "text-gray-900_a2"
               }`}
               size="txtOpenSansRomanRegular16Gray900a2"
-              onClick={() => navigate(link.path)}
+              onClick={() => {  if (!location.pathname.startsWith(link.path + "/")) {
+                navigate(link.path);
+              }}}
             >
               {link.name}
             </Text>
@@ -120,7 +134,9 @@ const NavBar = (props) => {
                 matchRoute(link.path) ? "text-red-400" : "text-gray-900_a2"
               }`}
               size="txtOpenSansRomanRegular16Gray900a2"
-              onClick={() => navigate(link.path)}
+              onClick={() => {  
+                navigate(link.path);
+              }}
             >
               {link.name}
             </Text>
@@ -131,6 +147,18 @@ const NavBar = (props) => {
             />
           </div>
         ))}
+
+        {/* Search Field */}
+        <div>
+        <form>
+                <input 
+                    type="text"
+                    onChange={handleInputChange}
+                    placeholder="Search for restaurants, cuisines..."
+                />
+                
+            </form>
+        </div>
       </div>
 
       {/* cart and login button */}

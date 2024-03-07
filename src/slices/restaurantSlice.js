@@ -5,6 +5,7 @@ const restaurantSlice = createSlice({
   initialState: {
     restaurantData: [],
     loading: false,
+    currentPath: "getAll",
   },
   reducers: {
     setRestaurantData: (state, action) => {
@@ -13,9 +14,12 @@ const restaurantSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
+    setCurrentPath: (state, action) => {
+      state.currentPath = action.payload;
+    },
   },
 });
 
 // Export actions and reducer from the slice
-export const { setRestaurantData ,setLoading} = restaurantSlice.actions;
+export const { setRestaurantData ,setLoading,setCurrentPath} = restaurantSlice.actions;
 export default restaurantSlice.reducer;
