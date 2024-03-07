@@ -21,37 +21,12 @@ body {
 }
 
 
-.dhiwise-code,
-.dhiwise-navigation {
-  min-height: 100%;
-}
+
 .common-pointer {
   cursor: pointer;
 }
-.dhiwise-navigation {
-  padding: 20px;
-  background-color: #232323;
-}
-.dhiwise-navigation h1 {
-  color: white;
-}
-.dhiwise-navigation .headline {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: white;
-}
-.dhiwise-navigation ul {
-  padding: 0;
-}
-.dhiwise-navigation ul li {
-  list-style: none;
-  margin-right: 20px;
-  font-size: 16px;
-  font-weight: bold;
-}
-.dhiwise-navigation a {
-  color: #132cdc;
-}
+
+
 table {
   border-spacing: 0;
   width: 100%;
@@ -186,7 +161,6 @@ ul li a{
 
 
 /* scroll */
-
 
 /* Custom CSS to hide overflow scrollbar */
 .overView-scrollbar::-webkit-scrollbar {

@@ -86,20 +86,7 @@ const NavBar = (props) => {
           )}
         </div>
       </div>
-{/* search mneu  */}
-      <div className="minmd:hidden mx-auto">
-      { location.pathname.includes("/category")  && <div className="relative flex justify-center items-center">
-          <input
-            className=" w-72 h-10 px-3 rounded-lg border-2  border-gray-300 focus:outline-none focus:border-red-400"
-            onChange={handleInputChange}
-            placeholder="Search for restaurants, cuisines..."
-          />
-          <span className="absolute right-2 bg-gray-50">
-            {" "}
-            <IoIosSearch />
-          </span>
-        </div>}
-      </div>
+
 
       {/* navbar links in small  device */}
       <div
@@ -179,7 +166,7 @@ const NavBar = (props) => {
         ))}
       </div>
 
-      {/* cart and login button */}
+      {/* cart and login button in large device */}
       <div
         className={`flex sm:hidden sm:flex-col flex-row  sm:items-start  items-center gap-2`}
       >
@@ -207,6 +194,21 @@ const NavBar = (props) => {
         { location.pathname.includes("/category")  && <div className="relative flex justify-center items-center">
           <input
             className=" w-72 h-10 px-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-red-400"
+            onChange={handleInputChange}
+            placeholder="Search for restaurants, cuisines..."
+          />
+          <span className="absolute right-2 bg-gray-50">
+            {" "}
+            <IoIosSearch />
+          </span>
+        </div>}
+      </div>
+
+      {/* search menu  */}
+      <div className="minmd:hidden mx-auto">
+      { location.pathname.includes("/category")  && <div className="relative flex justify-center items-center">
+          <input
+            className=" w-72 h-10 px-3 rounded-lg border-2  border-gray-300 focus:outline-none focus:border-red-400"
             onChange={handleInputChange}
             placeholder="Search for restaurants, cuisines..."
           />

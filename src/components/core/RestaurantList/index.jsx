@@ -47,7 +47,7 @@ export default function RestaurantList({ categoryPath }) {
   return (
     <div className="w-full">
       {/* Categories list */}
-      <div className="flex sm:flex-col flex-row md:flex-wrap font-poppins md:gap-2 gap-4 items-center justify-center lg:mt-[2rem] w-full overflow-hidden">
+      <div className="flex sm:flex-col flex-row md:flex-wrap font-poppins md:gap-2 gap-4  items-center justify-center  w-full overflow-hidden">
         {categories.map((category, index) => (
           <Button
             key={index}
@@ -62,7 +62,7 @@ export default function RestaurantList({ categoryPath }) {
       </div>
 
       {/* Outlet for nested routes */}
-      <div className="flex md:flex-col flex-row font-poppins md:gap-[46px] items-center justify-between lg:mt-[70px] w-full overflow-hidden">
+      <div className="flex md:flex-col flex-row font-poppins md:gap-[46px] items-center justify-between  w-full overflow-hidden">
         <Outlet />
       </div>
     </div>

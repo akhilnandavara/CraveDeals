@@ -1,11 +1,9 @@
 import React from "react";
 
 import { Button, Img, Text } from "components";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Footer = (props) => {
-  const navigate =useNavigate()
   return (
     <>
       <footer className={props.className}>
@@ -105,7 +103,7 @@ const Footer = (props) => {
                 className="leading-[153.00%] mt-[46px] text-gray-300  text-lg lg:text-xl w-full"
                 size="txtPoppinsRegular20Gray300"
               >
-                Sector 252 banglore, India
+                Sector 252 Bangalore, India
               </Text>
               <Text
                 className="mt-[31px] text-gray-300  text-lg lg:text-xl"
