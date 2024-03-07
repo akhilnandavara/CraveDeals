@@ -74,7 +74,7 @@ const HomepagePage = () => {
           </div>
         </div>
         <div className="bg-green-50 flex flex-row items-center justify-center mt-[139px] p-3.5 w-full">
-          <div className="flex md:flex-col flex-row gap-[13px] items-start justify-start lg:ml-[149px] md:px-5  w-[90%] lg:max-w-[1250px]">
+          <div className="flex flex-row md:flex-col gap-4  items-center justify-start  w-full    mx-auto  lg:max-w-[1250px] md:px-5">
             <div className="md:h-[558px] lg:h-[646px] relative w-3/5 md:w-full ">
               <Img
                 className="absolute h-[558px] inset-y-[0] left-[4%] my-auto object-cover w-[85%]"
@@ -97,7 +97,7 @@ const HomepagePage = () => {
                 alt="kisspngleafpe Two"
               />
             </div>
-            <div className="flex flex-col gap-9 items-start justify-start md:mt-0 mt-[91px] rounded-[16px] w-[39%] md:w-full">
+            <div className="flex flex-col gap-9 items-start justify-start md:mt-0 mt-[91px] rounded-[16px] w-[39%] md:w-full ">
               <div className="flex flex-col gap-4 items-start justify-start w-full">
                 <Text
                   className="leading-[110.00%] sm:text-[38px] md:text-[44px] text-[52px] text-red-400"

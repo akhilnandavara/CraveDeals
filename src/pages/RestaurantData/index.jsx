@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { FaDirections, FaStar } from "react-icons/fa";
 import { getRestaurantData } from "Service/operations/RestaurantApi";
 import NavBar from "components/Navbar";
-import { Button, Text } from "components";
+import { Button, Img, Text } from "components";
 import { useDispatch, useSelector } from "react-redux";
 import { setRestaurantData } from "slices/restaurantSlice";
 import Footer from "components/Footer";
@@ -36,7 +36,9 @@ export default function RestaurantDataPage() {
   // State for managing loading state
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch(); // Redux dispatch function
+  const navigate = useNavigate(); // Hook for navigating to different routes
   const { restaurantData } = useSelector((state) => state.restaurant); // Selecting restaurant data from Redux store
+  const carts = useSelector((state) => state.cart.carts); // Selecting cart data from Redux store
 
   // Hook for accessing the current location
   const location = useLocation();
@@ -260,6 +262,26 @@ export default function RestaurantDataPage() {
                   <Outlet />
                 </div>
               </div>
+
+                 {/* Cart Icon */}
+          {carts.length > 0 && 
+            <Button
+              id="cartIcon"
+              className={`fixed bottom-10 bg-gray-50 z-[1000] cursor-pointer flex h-[50px] items-center justify-center rounded-full right-0  lg:right-[5%] xl:right-[20%] 2xl:right-[35%] w-[50px]`} 
+              onClick={() => navigate("/cart")}
+              leftIcon={
+                <Img
+                  className="h-6 lg:h-[2rem] xl:h-[4rem]  m-[.5rem]"
+                  src={"/images/img_cart.svg"}
+                  alt="cart"
+                />
+              }
+            >
+              <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit right-0 text-xs">
+                {carts.length}
+              </div>
+            </Button>
+          }
             </div>
           </div>
           <Footer className="bg-gray-901 flex items-center justify-center md:px-5 w-full" />

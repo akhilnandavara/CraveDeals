@@ -300,26 +300,6 @@ export default function MenuItem() {
               </div>
             ))}
           </div>
-          
-          {/* Cart Icon */}
-          {carts.length > 0 && 
-            <Button
-              id="cartIcon"
-              className={`fixed bottom-10 bg-gray-50 z-0  right-0  xl:right-[22%] cursor-pointer flex h-[50px] items-center justify-center rounded-full `}
-              onClick={() => navigate("/cart")}
-              leftIcon={
-                <Img
-                  className="h-6 lg:h-[2rem] xl:h-[4rem]  m-[.5rem]"
-                  src={"/images/img_cart.svg"}
-                  alt="cart"
-                />
-              }
-            >
-              <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit right-0 text-xs">
-                {carts.length}
-              </div>
-            </Button>
-          }
         </div>
       )}
     </>
