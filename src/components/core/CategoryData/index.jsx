@@ -39,8 +39,8 @@ export default function CategoryData() {
   return (
     <>
       {loading ? (
-        <div className="flex items-center justify-center h-full w-full">
-          <img src={getRandomLoader()} alt="loading..." className="h-28 " />
+        <div className="flex items-center justify-center  min-h-[15rem] w-full">
+          <img src={getRandomLoader()} alt="loading..." className="h-28" />
         </div>
       ) : (
         <div className="flex flex-col mt-6 items-center justify-start rounded-[40px] w-full ">

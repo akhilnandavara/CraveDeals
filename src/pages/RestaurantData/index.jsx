@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { FaDirections, FaStar } from "react-icons/fa";
 import { getRestaurantData } from "Service/operations/RestaurantApi";
 import NavBar from "components/Navbar";
@@ -169,7 +175,7 @@ export default function RestaurantDataPage() {
               {/* header content */}
               <div className="w-full flex flex-col gap-4">
                 {/* Restaurant image */}
-                <div className="grid grid-cols-4 grid-rows-2 gap-1 z-[100]   w-full max-h-[20rem] overflow-hidden">
+                <div className="grid  grid-cols-4 grid-rows-2 gap-1 z-[100]   w-full max-h-[20rem] overflow-hidden">
                   {restaurantData?.images?.map((img, index) => (
                     <div
                       key={index}
@@ -223,11 +229,13 @@ export default function RestaurantDataPage() {
                     </p>
 
                     {/* time */}
-                    <span className="sm:text-xs">{getTodaysOperatingHours()}</span>
+                    <span className="sm:text-xs">
+                      {getTodaysOperatingHours()}
+                    </span>
 
-                    {/* buttons */}
+                    {/* direction buttons */}
                     <Button
-                      className="flex sm:text-xs items-center gap-2 w-fit border-2 p-2 rounded-md"
+                      className="flex mb-2 text-red-400 sm:text-xs items-center gap-2 w-fit border-2 p-2 rounded-md"
                       onClick={() =>
                         window.open(
                           restaurantData?.googleData?.mapUrl,
@@ -257,31 +265,32 @@ export default function RestaurantDataPage() {
                     ))}
                   </div>
                 </div>
+
                 {/* Dynamic sections order menu/reviews/offers*/}
                 <div className="w-full z-10">
                   <Outlet />
                 </div>
               </div>
 
-                 {/* Cart Icon */}
-          {carts.length > 0 && 
-            <Button
-              id="cartIcon"
-              className={`fixed bottom-10 bg-gray-50 z-[1000] cursor-pointer flex h-[50px] items-center justify-center rounded-full right-0  lg:right-[5%] xl:right-[20%] 2xl:right-[35%] w-[50px]`} 
-              onClick={() => navigate("/cart")}
-              leftIcon={
-                <Img
-                  className="h-6 lg:h-[2rem] xl:h-[4rem]  m-[.5rem]"
-                  src={"/images/img_cart.svg"}
-                  alt="cart"
-                />
-              }
-            >
-              <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit right-0 text-xs">
-                {carts.length}
-              </div>
-            </Button>
-          }
+              {/* Cart Icon */}
+              {carts.length > 0 && (
+                <Button
+                  id="cartIcon"
+                  className={`fixed bottom-10 bg-gray-50 z-[10] cursor-pointer flex h-[50px] items-center justify-center rounded-full right-0  lg:right-[5%] xl:right-[20%] 2xl:right-[35%] w-[50px]`}
+                  onClick={() => navigate("/cart")}
+                  leftIcon={
+                    <Img
+                      className="h-6 lg:h-[2rem] xl:h-[4rem]  m-[.5rem]"
+                      src={"/images/img_cart.svg"}
+                      alt="cart"
+                    />
+                  }
+                >
+                  <div className="text-red-400 absolute bottom-[20%] bg-white-A700 rounded-full w-[40%] h-fit right-0 text-xs">
+                    {carts.length}
+                  </div>
+                </Button>
+              )}
             </div>
           </div>
           <Footer className="bg-gray-901 flex items-center justify-center md:px-5 w-full" />
