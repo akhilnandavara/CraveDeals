@@ -81,7 +81,7 @@ export default function Cart() {
                   className="md:w-[10rem] w-[15rem]"
                 />
                 <Text className="text-4xl  text-center font-bold">
-                  Oh oh Cart is <span className="text-red-400"> Empty!</span>
+                  Oh Oh Cart Is <span className="text-red-400"> Empty!</span>
                 </Text>
                 <Text className="text-sm">
                   Add items to your cart to find best deals.
